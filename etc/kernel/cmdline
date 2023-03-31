@@ -1,0 +1,1 @@
+amdgpu.ppfeaturemask=0xffffffff dozfs=force root=ZFS=rpool/ROOT/default

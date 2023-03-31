@@ -1,0 +1,15 @@
+OD_SCLK:
+0: 500Mhz
+1: 2499Mhz
+OD_MCLK:
+0: 97Mhz
+1: 1000Mhz
+OD_VDDGFX_OFFSET:
+-100mV
+OD_RANGE:
+SCLK:     500Mhz       2800Mhz
+MCLK:     674Mhz       1075Mhz
+
+# Force power limit (in micro watts):
+FORCE_POWER_CAP: 375000000
+FORCE_PERF_LEVEL: manual
