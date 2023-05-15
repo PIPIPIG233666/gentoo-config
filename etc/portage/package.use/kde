@@ -1,5 +1,8 @@
-kde-plasma/plasma-meta bluetooth brower-integration colord desktop-portal discover kwallet pulseaudio sddm sdk smart
-media-sound/pulseaudio -daemon
-media-plugins/alsa-plugins pulseaudio
+kde-plasma/plasma-meta bluetooth brower-integration colord desktop-portal discover kwallet pulseaudio sddm sdk smart -crypt
 kde-apps/kde-apps-meta admin -education -games -graphics -multimedia network utils -accessibility -pim sdk
+media-libs/mesa vulkan
+
+media-sound/pulseaudio -daemon
 media-video/pipewire sound-server bluetooth X dbus
+media-plugins/alsa-plugins pulseaudio
+*/* pulseaudio
