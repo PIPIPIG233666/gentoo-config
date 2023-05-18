@@ -4,6 +4,8 @@
 # detailed example.
 COMMON_FLAGS="-O3 -march=native -pipe"
 
+GENTOO_MIRRORS="https://mirror.leaseweb.com/gentoo/ http://www.gtlib.gatech.edu/pub/gentoo https://mirrors.rit.edu/gentoo/"
+
 source /usr/share/fetchcommandwrapper/make.conf
 
 # LTO
@@ -36,8 +38,3 @@ LINGUAS="en_US zh_CN en zh"
 LC_MESSAGES=C
 
 INPUT_DEVICES="libinput evdev joystick"
-GENTOO_MIRRORS="http://www.gtlib.gatech.edu/pub/gentoo \
-    https://gentoo.osuosl.org/ \
-    http://gentoo.osuosl.org/ \
-    https://mirrors.rit.edu/gentoo/ \
-    http://mirrors.rit.edu/gentoo/"

@@ -766,3 +766,6 @@
 # required by @selected
 # required by @world (argument)
 >=dev-qt/qtpositioning-5.15.9 geoclue
+# required by app-portage/fetchcommandwrapper-0.8.4-r3::gentoo
+# required by app-portage/fetchcommandwrapper (argument)
+>=net-misc/aria2-1.36.0-r1 metalink xmlrpc
