@@ -1,9 +1,0 @@
-*/* PYTHON_TARGETS: -python2_7 -python3_9 python3_10 python3_11
-*/* PYTHON_SINGLE_TARGET: python3_10
-*/* -python_single_target_python3_9 python_single_target_python3_10
-# required by www-client/chromium-111.0.5563.110::gentoo
-# required by chromium (argument)
->=net-libs/nodejs-18.15.0 inspector
-# required by sys-boot/systemd-boot-250-r1::gentoo
-# required by systemd-boot (argument)
->=sys-apps/systemd-utils-252.7 boot
