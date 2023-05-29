@@ -50,3 +50,7 @@ sync-uri = https://github.com/PIPIPIG233666/gentoo_pppig.git
 
 
 
+[qt]
+location = /var/db/repos/qt
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/qt.git

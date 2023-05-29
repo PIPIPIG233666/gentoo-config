@@ -31,12 +31,12 @@ colorscheme = "dracula"
 colorscheme_bg = "dark"
 
 # Enable autocomplete layer
-[[layers]]
-autocomplete_method = "ycm"
-name = 'autocomplete'
-auto_completion_return_key_behavior = "complete"
-auto_completion_tab_key_behavior = "smart"
-
+# [[layers]]
+# autocomplete_method = "ycm"
+# name = 'autocomplete'
+# auto_completion_return_key_behavior = "complete"
+# auto_completion_tab_key_behavior = "smart"
+#
 [[layers]]
 name = 'shell'
 default_position = 'top'

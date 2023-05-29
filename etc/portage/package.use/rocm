@@ -1,0 +1,5 @@
+sci-libs/torchvision rocm
+# required by sci-libs/torchvision-0.15.2::pppig[rocm]
+# required by torchvision (argument)
+sci-libs/caffe2 rocm
+dev-util/amd-rocm-meta hip profiling science

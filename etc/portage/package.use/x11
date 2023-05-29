@@ -769,3 +769,19 @@
 # required by app-portage/fetchcommandwrapper-0.8.4-r3::gentoo
 # required by app-portage/fetchcommandwrapper (argument)
 >=net-misc/aria2-1.36.0-r1 metalink xmlrpc
+# required by app-vim/youcompleteme-20230419::tatsh-overlay
+# required by app-vim/youcompleteme (argument)
+>=app-editors/vim-9.0.1503 python
+# required by media-libs/libsdl2-2.26.5::gentoo[pipewire]
+# required by media-libs/openal-1.23.1::gentoo[sdl]
+# required by net-im/telegram-desktop-4.8.1-r2::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-video/pipewire-0.3.71-r1 abi_x86_32
+# required by media-libs/libsdl2-2.26.5::gentoo[wayland]
+# required by media-libs/openal-1.23.1::gentoo[sdl]
+# required by net-im/telegram-desktop-4.8.1-r2::gentoo
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libxkbcommon-1.5.0 abi_x86_32
+
