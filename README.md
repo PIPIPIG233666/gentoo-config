@@ -8,8 +8,5 @@
 ### etc/kernel/cmdline
 #### cmdline for sbctl bundle generation
 
-### etc/ld.so.conf.d/rocm.conf
-#### loads the dependencies of RoCm stack for AI, i.e. StableDiffusion and pyTorch
-
 ### etc/portage/make.conf
 #### goodies for system-wide compiler optimization for Gentoo Linux
