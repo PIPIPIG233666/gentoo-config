@@ -1,5 +1,0 @@
-# required by sys-devel/clang-common-16.0.2::gentoo[default-compiler-rt,llvm-libunwind]
-# required by sys-devel/clang-16.0.2::gentoo
-# required by @selected
-# required by @world (argument)
-# >=sys-libs/llvm-libunwind-16.0.2 static-libs

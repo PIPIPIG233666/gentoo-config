@@ -1,0 +1,5 @@
+# Boost
+# required by dev-cpp/msgpack-cxx-6.0.0::gentoo[boost]
+# required by msgpack-cxx (argument)
+>=dev-libs/boost-1.82.0 context
+

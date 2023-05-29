@@ -1,2 +1,3 @@
 x11-base/xorg-drivers -video_cards_radeonsi
 x11-libs/libdrm video_cards_radeon
+media-libs/mesa zink

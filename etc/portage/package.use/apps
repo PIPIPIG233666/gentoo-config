@@ -1,0 +1,4 @@
+# Telegram
+# required by net-im/telegram-desktop-4.6.5::gentoo
+# required by telegram-desktop (argument)
+>=media-video/ffmpeg-4.4.3 opus vpx

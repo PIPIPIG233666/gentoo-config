@@ -1,4 +1,7 @@
 sys-apps/systemd gnuefi
-# required by net-im/telegram-desktop-4.6.5::gentoo
-# required by telegram-desktop (argument)
->=media-video/ffmpeg-4.4.3 opus vpx
+
+# required by sys-boot/systemd-boot-250-r1::gentoo
+# required by systemd-boot (argument)
+>=sys-apps/systemd-utils-252.7 boot
+
+
