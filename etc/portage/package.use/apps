@@ -2,3 +2,9 @@
 # required by net-im/telegram-desktop-4.6.5::gentoo
 # required by telegram-desktop (argument)
 >=media-video/ffmpeg-4.4.3 opus vpx
+
+# fetchcmdwrapper
+# required by app-portage/fetchcommandwrapper-0.8.4-r3::gentoo
+# required by fetchcommandwrapper (argument)
+>=net-misc/aria2-1.36.0-r1 metalink xmlrpc
+
