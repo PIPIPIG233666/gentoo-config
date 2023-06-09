@@ -3,6 +3,3 @@ sys-apps/systemd gnuefi
 # required by sys-boot/systemd-boot-250-r1::gentoo
 # required by systemd-boot (argument)
 >=sys-apps/systemd-utils-252.7 boot
-
-
-
