@@ -9,7 +9,7 @@ sci-libs/caffe2 rocm
 >=dev-python/numpy-1.24.3 lapack
 
 # ROCm meta
-dev-util/amd-rocm-meta hip profiling science
+dev-util/amd-rocm-meta hip profiling science opencl
 
 # Stable-diffusion
 media-libs/opencv python
@@ -46,3 +46,6 @@ media-libs/opencv python
 
 # Pytorch
 sci-libs/pytorch rocm
+
+# Tensorflow
+sci-libs/tensorflow rocm
