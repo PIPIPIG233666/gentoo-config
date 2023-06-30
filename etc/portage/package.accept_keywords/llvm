@@ -1,0 +1,30 @@
+sys-devel/clang ~amd64
+=sys-devel/clang-17.0.0_pre20230620-r1 **
+
+sys-devel/llvm ~amd64
+=sys-devel/llvm-17.0.0_pre20230620 **
+
+sys-devel/clang-common ~amd64
+=sys-devel/clang-common-17.0.0_pre20230620 **
+
+sys-devel/clang-runtime ~amd64
+=sys-devel/clang-runtime-17.0.0_pre20230620 **
+
+sys-devel/llvm-toolchain-symlinks ~amd64
+=sys-devel/llvm-toolchain-symlinks-17 **
+
+sys-devel/clang-toolchain-symlinks ~amd64
+=sys-devel/clang-toolchain-symlinks-17 **
+
+sys-libs/compiler-rt ~amd64
+=sys-libs/compiler-rt-17.0.0_pre20230620 **
+
+sys-libs/compiler-rt-sanitizers ~amd64
+=sys-libs/compiler-rt-sanitizers-17.0.0_pre20230620 **
+
+sys-libs/libomp ~amd64
+=sys-libs/libomp-17.0.0_pre20230620 **
+
+sys-devel/llvmgold ~amd64
+=sys-devel/llvmgold-17 **
+
