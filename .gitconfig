@@ -1,0 +1,22 @@
+
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	us = reset HEAD^
+	last = log -1
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	cp = cherry-pick
+	cpc = cherry-pick --continue
+	cpa = cherry-pick --abort
+	d = difftool
+	m = mergetool
+        # git change-commits GIT_COMMITTER_NAME "old name" "new name"
+        change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
+[core]
+	editor = vim
+
+[user]
+	email = weikaik@umich.edu
+	name = pppig236
