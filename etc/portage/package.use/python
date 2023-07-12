@@ -2,7 +2,7 @@
 */* PYTHON_SINGLE_TARGET: -* python3_11
 */* -python_single_target_python3_9 -python_single_target_python3_10 python_single_target_python3_11
 
-#dev-lang/python lto pgo tk
+dev-lang/python lto pgo tk
 
 # required by net-misc/gdown-4.7.1::guru
 # required by gdown (argument)
