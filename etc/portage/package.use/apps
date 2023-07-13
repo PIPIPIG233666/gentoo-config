@@ -8,3 +8,8 @@
 # required by fetchcommandwrapper (argument)
 >=net-misc/aria2-1.36.0-r1 metalink xmlrpc
 
+# psensor
+# required by dev-libs/libappindicator-12.10.1_p20200706::gentoo
+# required by sys-apps/psensor-1.2.1::simonvanderveldt
+# required by psensor (argument)
+>=dev-libs/libdbusmenu-16.04.0-r2 gtk3
