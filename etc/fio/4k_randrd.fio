@@ -1,0 +1,52 @@
+[global]
+direct=1
+thread
+ioengine=libaio
+rw=randread
+bs=4k
+size=1G
+group_reporting
+name=homolab
+time_based
+
+[4k q1t1]
+iodepth=1
+numjobs=1
+runtime=60
+stonewall
+
+[4k q2t1]
+iodepth=2
+numjobs=1
+runtime=60
+stonewall
+
+[4k q4t1]
+iodepth=4
+numjobs=1
+runtime=60
+stonewall
+
+[4k q4t4]
+iodepth=4
+numjobs=4
+runtime=60
+stonewall
+
+[4k q8t1]
+iodepth=8
+numjobs=1
+runtime=60
+stonewall
+
+[4k q8t4]
+iodepth=8
+numjobs=4
+runtime=60
+stonewall
+
+[4k q8t8]
+iodepth=8
+numjobs=8
+runtime=60
+stonewall
