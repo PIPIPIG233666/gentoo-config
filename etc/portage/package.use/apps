@@ -13,3 +13,11 @@
 # required by sys-apps/psensor-1.2.1::simonvanderveldt
 # required by psensor (argument)
 >=dev-libs/libdbusmenu-16.04.0-r2 gtk3
+
+# FIO
+sys-block/fio aio
+
+# Phoronix
+# required by app-benchmarks/phoronix-test-suite-9999::guru
+# required by phoronix-test-suite (argument)
+>=dev-lang/php-8.2.8 pcntl sockets curl gd zip truetype

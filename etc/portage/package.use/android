@@ -1,0 +1,23 @@
+# required by dev-util/aosp-devel-meta-9-r1::pppig
+# required by dev-util/lineageos-devel-meta-19.1::pppig
+# required by lineageos-devel-meta (argument)
+>=sys-libs/ncurses-compat-6.4_p20230401 abi_x86_32
+# required by dev-util/aosp-devel-meta-9-r1::pppig
+# required by dev-util/lineageos-devel-meta-19.1::pppig
+# required by lineageos-devel-meta (argument)
+>=sys-libs/readline-8.2_p1 abi_x86_32
+# required by dev-util/aosp-devel-meta-9-r1::pppig
+# required by dev-util/lineageos-devel-meta-19.1::pppig
+# required by lineageos-devel-meta (argument)
+>=sys-libs/zlib-1.2.13-r1 abi_x86_32
+# required by sys-libs/readline-8.2_p1::gentoo
+# required by dev-lang/python-2.7.18_p16-r1::gentoo[readline]
+# required by dev-util/aosp-devel-meta-9-r1::pppig
+# required by dev-util/lineageos-devel-meta-19.1::pppig
+# required by lineageos-devel-meta (argument)
+>=sys-libs/ncurses-6.4_p20230401 abi_x86_32
+# required by sys-libs/ncurses-compat-6.4_p20230401::gentoo[gpm]
+# required by dev-util/aosp-devel-meta-9-r1::pppig
+# required by dev-util/lineageos-devel-meta-19.1::pppig
+# required by lineageos-devel-meta (argument)
+>=sys-libs/gpm-1.20.7-r5 abi_x86_32
