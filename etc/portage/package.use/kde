@@ -1,6 +1,5 @@
 kde-plasma/plasma-meta bluetooth brower-integration colord desktop-portal discover kwallet pulseaudio sddm sdk smart -crypt
 kde-apps/kde-apps-meta admin -education -games -graphics -multimedia network utils -accessibility -pim sdk
-media-libs/mesa vulkan
 
 media-video/pipewire sound-server bluetooth X dbus
 media-plugins/alsa-plugins pulseaudio
@@ -9,8 +8,8 @@ media-sound/pulseaudio -daemon
 
 # remove after rebuild
 # from https://github.com/pimvullers/elementary/issues/228
-#media-libs/libsndfile minimal
-#media-sound/mpg123 -pulseaudio
+media-libs/libsndfile minimal
+media-sound/mpg123 -pulseaudio
 
 # required by kde-misc/kweather-23.04.1::gentoo
 # required by kde-apps/kdeutils-meta-23.04.1::gentoo

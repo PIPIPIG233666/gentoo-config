@@ -1,5 +1,8 @@
-sys-apps/systemd gnuefi
+# required by virtual/libudev-251::gentoo[-systemd]
+# required by sys-auth/elogind-252.9::gentoo
+# required by sys-process/procps-3.3.17-r2::gentoo[elogind]
+# required by @system
+# required by @world (argument)
+>=sys-apps/systemd-utils-253.7 abi_x86_32
 
-# required by sys-boot/systemd-boot-250-r1::gentoo
-# required by systemd-boot (argument)
->=sys-apps/systemd-utils-252.7 boot
+sys-apps/systemd gnuefi

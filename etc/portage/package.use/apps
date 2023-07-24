@@ -21,3 +21,16 @@ sys-block/fio aio
 # required by app-benchmarks/phoronix-test-suite-9999::guru
 # required by phoronix-test-suite (argument)
 >=dev-lang/php-8.2.8 pcntl sockets curl gd zip truetype
+
+# curl
+# required by dev-util/cmake-3.27.0::gentoo
+# required by dev-util/ccache-4.8.2::gentoo
+# required by @selected
+# required by @world (argument)
+>=net-misc/curl-8.2.0-r1 ssl
+
+# fcitx
+app-i18n/fcitx gtk3
+
+# htop
+sys-process/htop lm-sensors
