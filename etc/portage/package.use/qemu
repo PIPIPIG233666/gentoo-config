@@ -1,1 +1,14 @@
 app-emulation/libvirt pcap virt-network numa fuse macvtap vepa qemu
+sys-firmware/edk2-ovmf -binary -pin-upstream-blobs
+app-emulation/qemu usb usbredir spice -pin-upstream-blobs opengl pipewire ssh
+
+net-libs/gnutls tools
+
+# required by swtpm (argument)
+>=net-libs/gnutls-3.8.0 pkcs11
+# required by net-libs/gnutls-3.8.0::gentoo[pkcs11]
+# required by app-crypt/swtpm-0.8.0-r1::gentoo[gnutls]
+# required by swtpm (argument)
+>=app-crypt/p11-kit-0.25.0 abi_x86_32
+
+app-crypt/swtpm gnutls

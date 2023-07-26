@@ -34,3 +34,6 @@ app-i18n/fcitx gtk3
 
 # htop
 sys-process/htop lm-sensors
+
+# keepassXC
+app-admin/keepassxc browser
