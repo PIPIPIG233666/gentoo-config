@@ -1,8 +1,19 @@
-app-emulation/libvirt pcap virt-network numa fuse macvtap vepa qemu
-sys-firmware/edk2-ovmf -binary -pin-upstream-blobs
-app-emulation/qemu usb usbredir spice -pin-upstream-blobs opengl pipewire ssh
+app-emulation/libvirt virt-network numa vepa qemu
+
+# from https://github.com/HougeLangley/gentoo-configs/blob/5e59001141a964f49268000e2eeff7e19991ddd3/gentoo-general/package.use/libvirt
+app-emulation/libvirt audit bash-completion dtrace fuse glusterfs iscsi iscsi-direct libssh nfs parted pcap wireshark-plugins zfs lxc numa
+
+# Make sure to use ovmf from source
+sys-firmware/edk2-ovmf -binary
+app-emulation/qemu -pin-upstream-blobs
+
+app-emulation/qemu usb usbredir spice opengl pipewire ssh
+
+# from https://github.com/HougeLangley/gentoo-configs/blob/5e59001141a964f49268000e2eeff7e19991ddd3/gentoo-general/package.use/qemu
+app-emulation/qemu accessibility glusterfs gnutls infiniband io-uring iscsi jack jemalloc lzo multipath nfs plugins spice ssh usbredir vde vhost-user-fs virgl virtfs vte snappy numa fuse
 
 net-libs/gnutls tools
+app-crypt/swtpm gnutls
 
 # required by swtpm (argument)
 >=net-libs/gnutls-3.8.0 pkcs11
@@ -11,4 +22,25 @@ net-libs/gnutls tools
 # required by swtpm (argument)
 >=app-crypt/p11-kit-0.25.0 abi_x86_32
 
-app-crypt/swtpm gnutls
+# required by app-emulation/libvirt-9.5.0::gentoo[parted]
+# required by @kvm
+# required by @selected
+# required by @world (argument)
+>=sys-block/parted-3.6 device-mapper
+# required by app-emulation/libvirt-9.5.0::gentoo[parted]
+# required by @kvm
+# required by @selected
+# required by @world (argument)
+>=sys-fs/lvm2-2.03.21 lvm
+
+#doas systemctl enable --now virtlockd
+#doas systemctl enable --now virtnodedevd
+#doas systemctl enable --now virtstoraged
+#doas systemctl enable --now virtqemud
+#doas systemctl enable --now virtchd
+#doas systemctl enable --now virtproxyd
+#doas systemctl enable --now virtinterfaced
+#doas systemctl enable --now virtlogd
+#doas systemctl enable --now virtsecretd
+#doas systemctl enable --now virtnetworkd
+#doas systemctl enable --now virtnwfilterd
