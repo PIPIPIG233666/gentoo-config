@@ -10,3 +10,18 @@
 
 ### etc/portage/make.conf
 #### goodies for system-wide compiler optimization for Gentoo Linux
+
+### how to start libvirt daemons
+```
+doas systemctl enable --now virtlockd
+doas systemctl enable --now virtnodedevd
+doas systemctl enable --now virtstoraged
+doas systemctl enable --now virtqemud
+doas systemctl enable --now virtchd
+doas systemctl enable --now virtproxyd
+doas systemctl enable --now virtinterfaced
+doas systemctl enable --now virtlogd
+doas systemctl enable --now virtsecretd
+doas systemctl enable --now virtnetworkd
+doas systemctl enable --now virtnwfilterd
+```

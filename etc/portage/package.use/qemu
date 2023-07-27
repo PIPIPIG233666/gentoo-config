@@ -32,15 +32,3 @@ app-crypt/swtpm gnutls
 # required by @selected
 # required by @world (argument)
 >=sys-fs/lvm2-2.03.21 lvm
-
-#doas systemctl enable --now virtlockd
-#doas systemctl enable --now virtnodedevd
-#doas systemctl enable --now virtstoraged
-#doas systemctl enable --now virtqemud
-#doas systemctl enable --now virtchd
-#doas systemctl enable --now virtproxyd
-#doas systemctl enable --now virtinterfaced
-#doas systemctl enable --now virtlogd
-#doas systemctl enable --now virtsecretd
-#doas systemctl enable --now virtnetworkd
-#doas systemctl enable --now virtnwfilterd
