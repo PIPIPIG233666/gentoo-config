@@ -25,3 +25,6 @@ doas systemctl enable --now virtsecretd
 doas systemctl enable --now virtnetworkd
 doas systemctl enable --now virtnwfilterd
 ```
+
+### etc/genkernel.conf
+compiler: llvm-clang, fs: zfs, microcode: amd
