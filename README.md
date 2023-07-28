@@ -28,3 +28,6 @@ doas systemctl enable --now virtnwfilterd
 
 ### etc/genkernel.conf
 compiler: llvm-clang, fs: zfs, microcode: amd
+
+### etc/kernels/kernel-config-*
+kconfig for genkernel
