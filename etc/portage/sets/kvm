@@ -1,8 +1,0 @@
-app-emulation/libvirt
-app-emulation/qemu
-app-emulation/virt-manager
-
-sys-firmware/edk2-ovmf
-
-net-libs/gnutls
-app-crypt/swtpm
