@@ -1,5 +1,5 @@
 ## bazel doesn't like ccache
-#dev-util/bazel no-ccache.conf
+dev-util/bazel no-ccache.conf
 #dev-util/bazel clang-no-Werror.conf
 #
 ## Telegram doesn't like ccache due to precompiled headers
