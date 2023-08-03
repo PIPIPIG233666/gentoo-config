@@ -51,4 +51,4 @@ sci-libs/pytorch rocm
 sci-libs/tensorflow rocm
 
 # HIP test
-dev-util/hip test
+#dev-util/hip test

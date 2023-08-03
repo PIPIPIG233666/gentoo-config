@@ -1,7 +1,7 @@
 # Telegram
 # required by net-im/telegram-desktop-4.6.5::gentoo
 # required by telegram-desktop (argument)
->=media-video/ffmpeg-4.4.3 opus vpx
+#>=media-video/ffmpeg-4.4.3 opus vpx
 
 # fetchcmdwrapper
 # required by app-portage/fetchcommandwrapper-0.8.4-r3::gentoo
@@ -30,10 +30,15 @@ sys-block/fio aio
 >=net-misc/curl-8.2.0-r1 ssl
 
 # fcitx
-app-i18n/fcitx gtk3
+#app-i18n/fcitx gtk3
 
 # htop
 sys-process/htop lm-sensors
 
 # keepassXC
-app-admin/keepassxc browser
+#app-admin/keepassxc browser
+
+# required by sys-devel/llvm-16.0.6::xarblu-overlay[zstd]
+# required by sys-devel/clang-16.0.6::gentoo
+# required by sys-devel/clang-common-16.0.6-r2::gentoo
+>=app-arch/zstd-1.5.5 abi_x86_32

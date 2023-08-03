@@ -1,0 +1,5 @@
+
+sci-libs/rocSPARSE gcc-no-lto.conf
+sci-libs/hipSPARSE gcc-no-lto.conf
+#sci-libs/rocFFT gcc-no-lto.conf
+#sci-libs/rocBLAS gcc-no-lto.conf

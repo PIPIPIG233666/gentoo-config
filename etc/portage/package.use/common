@@ -1,4 +1,3 @@
 #*/* graphite pgo lto
-#clang llvm secureboot tpm
 
-*/* vulkan wayland zstd
+*/* llvm clang vulkan zstd

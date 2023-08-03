@@ -1,0 +1,6 @@
+# required by app-crypt/p11-kit-0.25.0::gentoo
+# required by net-libs/gnutls-3.8.0::gentoo[pkcs11]
+# required by net-print/cups-2.4.6::gentoo[-openssl,ssl]
+# required by app-text/ghostscript-gpl-10.01.2::gentoo[cups]
+# required by net-print/cups-filters-1.28.17-r2::gentoo[postscript]
+>=dev-libs/libtasn1-4.19.0 abi_x86_32

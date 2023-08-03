@@ -1,0 +1,54 @@
+## bazel doesn't like ccache
+#dev-util/bazel no-ccache.conf
+#dev-util/bazel clang-no-Werror.conf
+#
+## Telegram doesn't like ccache due to precompiled headers
+#net-im/telegram-desktop no-ccache.conf
+#
+## clang + thinlto is default.
+#
+### Move package downwards in the list until it compiles.
+### Bug# is for bugs.gentoo.org
+#
+## clang, no lto
+#media-libs/alsa-lib clang-no-lto.conf #616108 #669086
+#media-libs/dav1d clang-no-lto.conf #801172
+#sys-apps/pciutils clang-no-lto.conf #852929
+#sys-fs/fuse clang-no-lto.conf #853058
+#sys-libs/libxcrypt clang-no-lto.conf #852917 (doesn't work with lto says upstream)
+#
+## gcc, with lto
+#media-video/pipewire gcc-with-lto.conf #802162
+#sys-devel/gcc gcc-with-lto.conf
+#sys-libs/glibc gcc-with-lto.conf
+#sys-apps/systemd gcc-with-lto.conf
+#dev-qt/qtcore gcc-with-lto.conf
+#sci-libs/hdf5 gcc-with-lto.conf
+#media-libs/tg_owt gcc-with-lto.conf
+#sys-apps/psensor gcc-with-lto.conf
+#media-libs/faad2 gcc-with-lto.conf
+#app-emulation/wine-proton gcc-with-lto.conf
+#dev-perl/XS-Parse-Keyword gcc-with-lto.conf
+##media-libs/mesa gcc-with-lto.conf
+#sys-devel/binutils gcc-with-lto.conf
+#net-misc/networkmanager gcc-with-lto.conf
+#dev-lang/luajit gcc-with-lto.conf
+#
+## gcc, no lto
+#media-libs/x264 gcc-no-lto.conf #497714
+#media-video/ffmpeg gcc-no-lto.conf #772854
+#sys-kernel/gentoo-kernel gcc-no-lto.conf # needs some workarounds for clang+thinlto, easier with gentoo-sources
+##dev-util/hip gcc-no-lto.conf
+
+## textrels (https://wiki.gentoo.org/wiki/Hardened/Textrels_Guide)
+#media-libs/libass clang-lto-textrels.conf
+##media-libs/openh264 clang-lto-textrels.conf
+#media-libs/x265 clang-lto-textrels.conf
+#media-libs/xvid clang-lto-textrels.conf
+#
+## misc, package-specific solutions, other env overrides
+## mail-client/thunderbird firefox2.conf
+## www-client/firefox firefox2.conf
+#
+#
+#net-misc/aria2 gcc-no-lto.conf
