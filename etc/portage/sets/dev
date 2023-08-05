@@ -1,4 +1,7 @@
-dev-util/pkgdev
 app-vim/gentoo-syntax
 sys-apps/usbutils
+
 app-portage/gentoolkit
+app-eselect/eselect-repository
+dev-vcs/git
+dev-util/pkgdev
