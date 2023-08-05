@@ -7,3 +7,4 @@ dev-vcs/git
 dev-util/pkgdev
 
 app-portage/fetchcommandwrapper
+app-arch/lbzip2
