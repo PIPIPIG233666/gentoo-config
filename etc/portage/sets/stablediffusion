@@ -1,3 +1,10 @@
+dev-util/amd-rocm-meta
+
+dev-python/CLIP
+media-libs/opencv
+sci-libs/torchvision
+sci-visualization/tensorboard
+
 #=dev-python/numpy-1.23.5
 #=dev-python/protobuf-python-3.20.0
 #=dev-python/tensorboard-data-server-0.7.1
@@ -140,11 +147,8 @@
 =dev-python/yarl-1.9.2
 =dev-python/zipp-3.16.2
 =net-misc/gdown-4.7.1
+
 =sci-libs/clean-fid-0.1.35
 =sci-libs/huggingface_hub-0.16.4
 =sci-libs/tokenizers-0.13.3
 
-dev-python/CLIP
-media-libs/opencv
-sci-libs/torchvision
-sci-visualization/tensorboard
