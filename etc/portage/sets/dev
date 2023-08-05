@@ -5,3 +5,5 @@ app-portage/gentoolkit
 app-eselect/eselect-repository
 dev-vcs/git
 dev-util/pkgdev
+
+app-portage/fetchcommandwrapper
