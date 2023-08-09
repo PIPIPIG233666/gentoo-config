@@ -1,1 +1,1 @@
-video=efifb:off amd_iommu=on iommu=pt amdgpu.ppfeaturemask=0xffffffff dozfs=force root=ZFS=rpool/ROOT/default
+amdgpu.ppfeaturemask=0xffffffff dozfs=force root=ZFS=rpool/ROOT/gentoo

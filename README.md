@@ -8,6 +8,9 @@
 ### etc/kernel/cmdline
 #### cmdline for sbctl bundle generation
 
+### etc/kernels/kernel-config-*
+#### genkernel kconfig
+
 ### etc/portage/make.conf
 #### goodies for system-wide compiler optimization for Gentoo Linux
 
