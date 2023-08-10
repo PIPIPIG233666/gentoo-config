@@ -1,0 +1,13 @@
+diff --git a/config/kernel.m4.orig b/config/kernel.m4
+index ee263da..4ad8882 100644
+--- a/config/kernel.m4.orig
++++ b/config/kernel.m4
+@@ -693,7 +693,7 @@ AC_DEFUN([ZFS_LINUX_COMPILE], [
+ 		build kernel modules with LLVM/CLANG toolchain])
+ 	AC_TRY_COMMAND([
+ 	    KBUILD_MODPOST_NOFINAL="$5" KBUILD_MODPOST_WARN="$6"
+-	    make modules -k -j$TEST_JOBS '${GENTOO_MAKEARGS_EVAL}'
++	    make LLVM=1 LLVM_IAS=1 modules -k -j$TEST_JOBS '${GENTOO_MAKEARGS_EVAL}'
+ 	    CONFIG_MODULES=y CFLAGS_MODULE=-DCONFIG_MODULES
+ 	    -C $LINUX_OBJ $ARCH_UM M=$PWD/$1 >$1/build.log 2>&1])
+ 	AS_IF([AC_TRY_COMMAND([$2])], [$3], [$4])
