@@ -8,3 +8,6 @@ dev-util/pkgdev
 
 app-portage/fetchcommandwrapper
 app-arch/lbzip2
+
+sys-devel/clang
+sys-devel/lld

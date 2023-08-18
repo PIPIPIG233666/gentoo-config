@@ -1,3 +1,6 @@
 sys-process/htop
 sys-process/nvtop
-sys-apps/psensor
+#sys-apps/psensor
+# move sys-apps/lm_sensors sys-apps/lm-sensors
+sys-apps/lm-sensors
+app-portage/genlop
