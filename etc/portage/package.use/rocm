@@ -40,10 +40,6 @@ media-libs/opencv python
 # required by =sci-libs/transformers-4.25.1 (argument)
 =sci-libs/transformers-4.25.1 -python_targets_python3_12
 
-# Tensorboard
-# required by tensorboard (argument)
->=sci-visualization/tensorboard-2.13.0 -python_targets_python3_12
-
 # Pytorch
 sci-libs/pytorch rocm
 

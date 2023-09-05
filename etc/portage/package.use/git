@@ -1,0 +1,14 @@
+# required by app-crypt/p11-kit-0.25.0-r1::gentoo[libffi]
+# required by net-libs/gnutls-3.8.1-r1::gentoo[pkcs11]
+# required by app-crypt/gnupg-2.4.3::gentoo[ssl]
+# required by app-crypt/gpgme-1.21.0::gentoo
+# required by app-portage/portage-utils-0.96.1::gentoo[qmanifest,-static]
+# required by app-admin/perl-cleaner-2.31::gentoo[-pkgcore]
+# required by dev-lang/perl-5.38.0-r1::gentoo
+# required by virtual/perl-Digest-SHA-6.40.0::gentoo
+# required by dev-perl/Digest-HMAC-1.40.0::gentoo
+# required by dev-perl/Authen-SASL-2.160.0-r2::gentoo
+# required by dev-vcs/git-2.41.0::gentoo[perl]
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libffi-3.4.4-r1 abi_x86_32

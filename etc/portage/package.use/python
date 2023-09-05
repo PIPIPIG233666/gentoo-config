@@ -1,9 +1,40 @@
-*/* PYTHON_TARGETS: -* python3_10 python3_11
+*/* PYTHON_TARGETS: -* python3_10 python3_11 python3_12
 */* PYTHON_SINGLE_TARGET: -* python3_11
-*/* -python_single_target_python3_10 python_single_target_python3_11
 
 #dev-lang/python tk
 
 # required by net-misc/gdown-4.7.1::guru
 # required by gdown (argument)
->=dev-python/requests-2.31.0 socks5
+dev-python/requests socks5 
+
+# required by dev-python/aiohttp-3.8.5::gentoo
+# required by @stablediffusion (argument)
+>=app-arch/brotli-1.0.9-r6 python
+
+# required by sci-libs/tensorflow-estimator-2.13.0::pppig
+# required by sci-libs/tensorflow-2.13.0::pppig[python]
+# required by sci-visualization/tensorboard-2.13.0::pppig
+# required by @stablediffusion (argument)
+>=sci-libs/keras-2.13.1 -python_targets_python3_12
+# required by sci-libs/keras-2.13.1::pppig
+# required by sci-libs/tensorflow-estimator-2.13.0::pppig
+>=sci-libs/tensorflow-2.13.0 -python_targets_python3_12
+# required by sci-libs/tensorflow-2.13.0::pppig
+# required by sci-libs/keras-2.13.1::pppig
+# required by sci-libs/tensorflow-estimator-2.13.0::pppig
+>=sci-visualization/tensorboard-2.13.0 -python_targets_python3_12
+# required by sci-libs/tensorflow-2.13.0::pppig
+# required by sci-libs/keras-2.13.1::pppig
+>=sci-libs/tensorflow-estimator-2.13.0 -python_targets_python3_12
+
+=dev-python/safetensors-0.3.1 -python_targets_python3_12
+
+# required by dev-python/matplotlib-3.7.2::gentoo[-test]
+# required by dev-python/pywavelets-1.4.1::gentoo[-test]
+# required by @stablediffusion (argument)
+>=virtual/imagemagick-tools-0-r1 jpeg tiff
+# required by virtual/imagemagick-tools-0-r1::gentoo
+# required by dev-python/matplotlib-3.7.2::gentoo[-test]
+# required by dev-python/pywavelets-1.4.1::gentoo[-test]
+# required by @stablediffusion (argument)
+>=media-gfx/imagemagick-7.1.1.11-r1 jpeg tiff

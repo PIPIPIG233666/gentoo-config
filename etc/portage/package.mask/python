@@ -1,1 +1,3 @@
 >dev-python/antlr4-python3-runtime-4.9.3
+# unmask after python 3.12 stable rel
+#<=dev-python/cryptography-41.0.3
