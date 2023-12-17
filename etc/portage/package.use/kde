@@ -1,10 +1,10 @@
-#kde-plasma/plasma-meta bluetooth brower-integration colord desktop-portal discover kwallet pulseaudio sddm sdk smart -crypt
-#kde-apps/kde-apps-meta admin -education -games -graphics -multimedia network utils -accessibility -pim sdk
+kde-plasma/plasma-meta bluetooth brower-integration colord desktop-portal discover kwallet pulseaudio sddm sdk smart -crypt plymouth
+kde-apps/kde-apps-meta admin -education -games -graphics -multimedia network utils -accessibility -pim sdk
 
-#media-video/pipewire sound-server bluetooth X dbus
-#media-plugins/alsa-plugins pulseaudio
+media-video/pipewire sound-server bluetooth X dbus
+media-plugins/alsa-plugins pulseaudio
 
-#media-sound/pulseaudio -daemon
+media-sound/pulseaudio -daemon
 
 # remove after rebuild
 # from https://github.com/pimvullers/elementary/issues/228
@@ -15,4 +15,4 @@
 # required by kde-apps/kdeutils-meta-23.04.1::gentoo
 # required by kde-apps/kde-apps-meta-23.04.1::gentoo[utils]
 # required by kde-apps/kde-apps-meta (argument)
-#>=dev-qt/qtpositioning-5.15.9 geoclue
+>=dev-qt/qtpositioning-5.15.9 geoclue
