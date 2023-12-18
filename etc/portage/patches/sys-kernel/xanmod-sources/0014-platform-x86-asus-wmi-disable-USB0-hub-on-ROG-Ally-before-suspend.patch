@@ -1,4 +1,4 @@
-From b7181b6d23257acb8ded796c0c0da257bfeaf611 Mon Sep 17 00:00:00 2001
+From fccb8cf72d4a57a4972caf94c2426eeb2ce5327f Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Mon, 27 Nov 2023 12:05:21 +1300
 Subject: [PATCH] platform/x86: asus-wmi: disable USB0 hub on ROG Ally before

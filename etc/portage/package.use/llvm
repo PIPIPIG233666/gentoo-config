@@ -4,3 +4,5 @@ sys-devel/clang llvm-libunwind
 sys-devel/clang-common llvm-libunwind
 sys-process/htop llvm-libunwind
 dev-cpp/glog llvm-libunwind
+*/* llvm-libunwind
+

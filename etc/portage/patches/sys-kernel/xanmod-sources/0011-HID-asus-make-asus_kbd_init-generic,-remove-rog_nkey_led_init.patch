@@ -1,4 +1,4 @@
-From 58a93ffebe647f5dcadceba0d1fb5ccb1609da10 Mon Sep 17 00:00:00 2001
+From cc3bbd0f2e662ae378466d3a518cd0de4bb76245 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sat, 2 Dec 2023 17:47:59 +1300
 Subject: [PATCH] HID: asus: make asus_kbd_init() generic, remove

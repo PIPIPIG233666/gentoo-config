@@ -1,4 +1,4 @@
-From 31051f65f7d7154552c1472b5cea491080029a34 Mon Sep 17 00:00:00 2001
+From a87310733c5d5f93e4c5c1c157db5eabcee5bd31 Mon Sep 17 00:00:00 2001
 From: Denis Benato <benato.denis96@gmail.com>
 Date: Fri, 17 Nov 2023 14:15:55 +1300
 Subject: [PATCH] HID: hid-asus: add const to read-only outgoing usb buffer

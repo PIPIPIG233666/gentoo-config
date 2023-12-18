@@ -52,7 +52,8 @@ location = /var/db/repos/x0rzavi
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/x0rzavi.git
 
-[steam-overlay]
-location = /var/db/repos/steam-overlay
+
+[gnome]
+location = /var/db/repos/gnome
 sync-type = git
-sync-uri = https://github.com/gentoo-mirror/steam-overlay.git
+sync-uri = https://github.com/gentoo-mirror/gnome.git
