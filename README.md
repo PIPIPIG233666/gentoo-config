@@ -2,6 +2,9 @@
 
 ## Things actually used
 
+### etc/fstab
+#### fstab for Ally (using ZFS thus no root in fstab)
+
 ### etc/portage/patches
 #### all the patches from upstream for ROG Ally
 

@@ -1,0 +1,12 @@
+# /dev/sda1 LABEL=SYSTEM
+UUID=7487-79A6      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+
+# SWAP
+/dev/zvol/rpool1/swap none swap defaults 0 0
+
+# /dev/nvme0n1p3 LABEL=P41P-Windows
+UUID=461E891D1E8906E1   /mnt/windows-os ntfs3           rw,relatime,uid=0,gid=0,iocharset=utf8  0 0
+
+# /dev/nvme0n1p5 LABEL=P41P-Data
+UUID=573A09C151AAA5EB   /mnt/windows-data       ntfs3           rw,relatime,uid=0,gid=0,iocharset=utf8  0 0
+
