@@ -1,4 +1,4 @@
-From 62e6113342af8a179e1218323eab8d8895f959a9 Mon Sep 17 00:00:00 2001
+From e82d721648b41a887e5ff0189a7494a32946bae1 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sat, 2 Dec 2023 17:27:23 +1300
 Subject: [PATCH] HID: asus: fix more n-key report descriptors if n-key quirked

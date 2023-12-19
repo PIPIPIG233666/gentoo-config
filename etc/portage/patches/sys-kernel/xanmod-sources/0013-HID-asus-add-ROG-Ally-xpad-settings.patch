@@ -1,4 +1,4 @@
-From d50385a2ec80b7355697556f96cdcfb29ab2d7f4 Mon Sep 17 00:00:00 2001
+From 9763710edc41d0530c66c04f60b85886857e2701 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Fri, 1 Dec 2023 16:57:19 +1300
 Subject: [PATCH] HID: asus: add ROG Ally xpad settings

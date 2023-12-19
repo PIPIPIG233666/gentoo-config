@@ -4,11 +4,13 @@
 0001-drm-introduce-DRM_CAP_ATOMIC_ASYNC_PAGE_FLIP.patch
 0001-drm-amd-display-ensure-async-flips-are-only-accepted-for-fast-updates.patch
 0001-drm-amd-display-PQ-tail-accuracy.patch
-0008-HID-hid-asus-add-const-to-read-only-outgoing-usb-buffer.patch
+0008-HID-asus-add-const-to-read-only-outgoing-usb-buffer.patch
+# HID-asus starts
 0010-HID-asus-fix-more-n-key-report-descriptors-if-n-key-quirked.patch
 0011-HID-asus-make-asus_kbd_init-generic,-remove-rog_nkey_led_init.patch
 0012-HID-asus-add-ROG-Ally-N-Key-ID-and-keycodes.patch
 0013-HID-asus-add-ROG-Ally-xpad-settings.patch
+# HID-asus ends
 0014-platform-x86-asus-wmi-disable-USB0-hub-on-ROG-Ally-before-suspend.patch
 0015-This-commit-adds-support-to-the-bmi323-device-on-top-of-the-pre-existing-bmc150-kernel-module.patch
 0016-PCI-Avoid-runtime-resuming-devices-if-system-is-shutting-down.patch
@@ -17,7 +19,7 @@
 0018-PM-hibernate-Move-to-crypto-APIs-for-LZO-compression.patch
 0019-PM-hibernate-Add-support-for-LZ4-compression-for-hibernation.patch
 0020-PM-hibernate-Support-to-select-compression-algorithm.patch
-0009-HID-hid-asus-reset-the-backlight-brightness-level-on-resume.patch
+0009-HID-asus-reset-the-backlight-brightness-level-on-resume.patch
 00001-ALSA-hda-cs35l41-Consistently-use-dev_err_probe().patch
 0001-ALSA-hda-cs35l41-Add-notification-support-into-component-binding.patch
 0002-ALSA-hda-realtek-Support-ACPI-Notification-framework-via-component-binding.patch

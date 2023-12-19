@@ -1,4 +1,4 @@
-From 1d880c7ac400cbc500d45ae37b2f61936f599637 Mon Sep 17 00:00:00 2001
+From e75fb13d3d811a4cb6dbb71a3d99b4b05b22ab93 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Wed, 29 Nov 2023 22:18:11 +1300
 Subject: [PATCH] HID: asus: add ROG Ally N-Key ID and keycodes

@@ -6,6 +6,9 @@ def download_files_with_names(url_list, output_names):
         for url, custom_name in zip(url_file, names_file):
             url = url.strip()
             custom_name = custom_name.strip()
+            # Ignore lines starting with #
+            if url.startswith('#') or custom_name.startswith('#'):
+                continue
 
             # Full path to the output file
             output_file_path = os.path.join(custom_name)
