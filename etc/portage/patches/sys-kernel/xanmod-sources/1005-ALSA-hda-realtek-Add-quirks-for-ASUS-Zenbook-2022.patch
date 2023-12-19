@@ -1,8 +1,7 @@
-From eb764ed7cedc162964ff1026338c89bc9e3578d7 Mon Sep 17 00:00:00 2001
+From 51d976079976c800ef19ed1b542602fcf63f0edb Mon Sep 17 00:00:00 2001
 From: Stefan Binding <sbinding@opensource.cirrus.com>
 Date: Mon, 18 Dec 2023 15:12:19 +0000
-Subject: [PATCH 5/7] ALSA: hda/realtek: Add quirks for ASUS Zenbook 2022
- Models
+Subject: [PATCH] ALSA: hda/realtek: Add quirks for ASUS Zenbook 2022 Models
 
 These models use 2xCS35L41amps with HDA using SPI and I2C.
 Models use internal and external boost.
@@ -10,15 +9,17 @@ All models require DSD support to be added inside
 cs35l41_hda_property.c
 
 Signed-off-by: Stefan Binding <sbinding@opensource.cirrus.com>
+Link: https://lore.kernel.org/r/20231218151221.388745-6-sbinding@opensource.cirrus.com
+Signed-off-by: Takashi Iwai <tiwai@suse.de>
 ---
  sound/pci/hda/patch_realtek.c | 5 ++++-
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/sound/pci/hda/patch_realtek.c b/sound/pci/hda/patch_realtek.c
-index 9b9066edfcce..73a87fb5def9 100644
+index 9c3de6a80e7351..66652320822f6d 100644
 --- a/sound/pci/hda/patch_realtek.c
 +++ b/sound/pci/hda/patch_realtek.c
-@@ -9909,17 +9909,20 @@ static const struct snd_pci_quirk alc269_fixup_tbl[] = {
+@@ -10000,17 +10000,20 @@ static const struct snd_pci_quirk alc269_fixup_tbl[] = {
  	SND_PCI_QUIRK(0x1043, 0x1d1f, "ASUS G713PI/PU/PV/PVN", ALC287_FIXUP_CS35L41_I2C_2),
  	SND_PCI_QUIRK(0x1043, 0x1d42, "ASUS Zephyrus G14 2022", ALC289_FIXUP_ASUS_GA401),
  	SND_PCI_QUIRK(0x1043, 0x1d4e, "ASUS TM420", ALC256_FIXUP_ASUS_HPE),
@@ -40,6 +41,3 @@ index 9b9066edfcce..73a87fb5def9 100644
  	SND_PCI_QUIRK(0x1043, 0x1f92, "ASUS ROG Flow X16", ALC289_FIXUP_ASUS_GA401),
  	SND_PCI_QUIRK(0x1043, 0x3030, "ASUS ZN270IE", ALC256_FIXUP_ASUS_AIO_GPIO2),
  	SND_PCI_QUIRK(0x1043, 0x3a20, "ASUS G614JZR", ALC245_FIXUP_CS35L41_SPI_2),
--- 
-2.43.0
-

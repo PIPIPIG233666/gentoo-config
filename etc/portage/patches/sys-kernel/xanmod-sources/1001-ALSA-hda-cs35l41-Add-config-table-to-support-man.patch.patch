@@ -1,8 +1,8 @@
-From 2d776801c7313e642cee73de83ee878aa2980c41 Mon Sep 17 00:00:00 2001
+From 8c4c216db8fb84be9c4ca60d72b88882066cf28f Mon Sep 17 00:00:00 2001
 From: Stefan Binding <sbinding@opensource.cirrus.com>
 Date: Mon, 18 Dec 2023 15:12:15 +0000
-Subject: [PATCH 1/7] ALSA: hda: cs35l41: Add config table to support many
- laptops without _DSD
+Subject: [PATCH] ALSA: hda: cs35l41: Add config table to support many laptops
+ without _DSD
 
 This make use of the CS35L41 HDA Property framework, which supports
 laptops which do not have the _DSD properties in their ACPI.
@@ -13,17 +13,27 @@ laptops to be supported just by adding an entry into the table.
 Use configuration table function for existing system 103C89C6.
 
 Signed-off-by: Stefan Binding <sbinding@opensource.cirrus.com>
+Link: https://lore.kernel.org/r/20231218151221.388745-2-sbinding@opensource.cirrus.com
+Signed-off-by: Takashi Iwai <tiwai@suse.de>
 ---
- sound/pci/hda/cs35l41_hda.c          |   1 +
+ sound/pci/hda/cs35l41_hda.c          |   2 +
  sound/pci/hda/cs35l41_hda.h          |   5 +-
- sound/pci/hda/cs35l41_hda_property.c | 266 ++++++++++++++++++++++++++-
- 3 files changed, 268 insertions(+), 4 deletions(-)
+ sound/pci/hda/cs35l41_hda_property.c | 304 +++++++++++++++++++++++----
+ 3 files changed, 269 insertions(+), 42 deletions(-)
 
 diff --git a/sound/pci/hda/cs35l41_hda.c b/sound/pci/hda/cs35l41_hda.c
-index 3c157b006a5a..3a14d2b4531f 100644
+index cbd7d8badf9130..92ca2b3b6c9240 100644
 --- a/sound/pci/hda/cs35l41_hda.c
 +++ b/sound/pci/hda/cs35l41_hda.c
-@@ -1708,6 +1708,7 @@ void cs35l41_hda_remove(struct device *dev)
+@@ -1826,6 +1826,7 @@ int cs35l41_hda_probe(struct device *dev, const char *device_name, int id, int i
+ 	if (cs35l41_safe_reset(cs35l41->regmap, cs35l41->hw_cfg.bst_type))
+ 		gpiod_set_value_cansleep(cs35l41->reset_gpio, 0);
+ 	gpiod_put(cs35l41->reset_gpio);
++	gpiod_put(cs35l41->cs_gpio);
+ 	acpi_dev_put(cs35l41->dacpi);
+ 	kfree(cs35l41->acpi_subsystem_id);
+ 
+@@ -1853,6 +1854,7 @@ void cs35l41_hda_remove(struct device *dev)
  	if (cs35l41_safe_reset(cs35l41->regmap, cs35l41->hw_cfg.bst_type))
  		gpiod_set_value_cansleep(cs35l41->reset_gpio, 0);
  	gpiod_put(cs35l41->reset_gpio);
@@ -32,10 +42,10 @@ index 3c157b006a5a..3a14d2b4531f 100644
  }
  EXPORT_SYMBOL_NS_GPL(cs35l41_hda_remove, SND_HDA_SCODEC_CS35L41);
 diff --git a/sound/pci/hda/cs35l41_hda.h b/sound/pci/hda/cs35l41_hda.h
-index b93bf762976e..2251027c2cf8 100644
+index ce3f2bb6ffd08a..3d925d677213d4 100644
 --- a/sound/pci/hda/cs35l41_hda.h
 +++ b/sound/pci/hda/cs35l41_hda.h
-@@ -34,8 +34,8 @@ struct cs35l41_amp_efi_data {
+@@ -35,8 +35,8 @@ struct cs35l41_amp_efi_data {
  } __packed;
  
  enum cs35l41_hda_spk_pos {
@@ -46,7 +56,7 @@ index b93bf762976e..2251027c2cf8 100644
  };
  
  enum cs35l41_hda_gpio_function {
-@@ -49,6 +49,7 @@ struct cs35l41_hda {
+@@ -50,6 +50,7 @@ struct cs35l41_hda {
  	struct device *dev;
  	struct regmap *regmap;
  	struct gpio_desc *reset_gpio;
@@ -55,7 +65,7 @@ index b93bf762976e..2251027c2cf8 100644
  	struct hda_codec *codec;
  
 diff --git a/sound/pci/hda/cs35l41_hda_property.c b/sound/pci/hda/cs35l41_hda_property.c
-index b62a4e6968e2..0d24e2cb3ee3 100644
+index c83328971728f4..f90423ded85d18 100644
 --- a/sound/pci/hda/cs35l41_hda_property.c
 +++ b/sound/pci/hda/cs35l41_hda_property.c
 @@ -6,9 +6,271 @@
@@ -330,7 +340,52 @@ index b62a4e6968e2..0d24e2cb3ee3 100644
  
  /*
   * Device CLSA010(0/1) doesn't have _DSD so a gpiod_get by the label reset won't work.
-@@ -84,7 +346,7 @@ struct cs35l41_prop_model {
+@@ -43,44 +305,6 @@ static int lenovo_legion_no_acpi(struct cs35l41_hda *cs35l41, struct device *phy
+ 	return 0;
+ }
+ 
+-/*
+- * Device 103C89C6 does have _DSD, however it is setup to use the wrong boost type.
+- * We can override the _DSD to correct the boost type here.
+- * Since this laptop has valid ACPI, we do not need to handle cs-gpios, since that already exists
+- * in the ACPI.
+- */
+-static int hp_vision_acpi_fix(struct cs35l41_hda *cs35l41, struct device *physdev, int id,
+-			      const char *hid)
+-{
+-	struct cs35l41_hw_cfg *hw_cfg = &cs35l41->hw_cfg;
+-
+-	dev_info(cs35l41->dev, "Adding DSD properties for %s\n", cs35l41->acpi_subsystem_id);
+-
+-	cs35l41->index = id;
+-	cs35l41->channel_index = 0;
+-
+-	/*
+-	 * This system has _DSD, it just contains an error, so we can still get the reset using
+-	 * the "reset" label.
+-	 */
+-	cs35l41->reset_gpio = fwnode_gpiod_get_index(acpi_fwnode_handle(cs35l41->dacpi), "reset",
+-						     cs35l41->index, GPIOD_OUT_LOW,
+-						     "cs35l41-reset");
+-	cs35l41->speaker_id = -ENOENT;
+-	hw_cfg->spk_pos = cs35l41->index ? 0 : 1; // right:left
+-	hw_cfg->gpio1.func = CS35L41_NOT_USED;
+-	hw_cfg->gpio1.valid = true;
+-	hw_cfg->gpio2.func = CS35L41_INTERRUPT;
+-	hw_cfg->gpio2.valid = true;
+-	hw_cfg->bst_type = CS35L41_INT_BOOST;
+-	hw_cfg->bst_ind = 1000;
+-	hw_cfg->bst_ipk = 4500;
+-	hw_cfg->bst_cap = 24;
+-	hw_cfg->valid = true;
+-
+-	return 0;
+-}
+-
+ struct cs35l41_prop_model {
+ 	const char *hid;
+ 	const char *ssid;
+@@ -91,7 +315,7 @@ struct cs35l41_prop_model {
  static const struct cs35l41_prop_model cs35l41_prop_model_table[] = {
  	{ "CLSA0100", NULL, lenovo_legion_no_acpi },
  	{ "CLSA0101", NULL, lenovo_legion_no_acpi },
@@ -339,7 +394,7 @@ index b62a4e6968e2..0d24e2cb3ee3 100644
  	{}
  };
  
-@@ -97,7 +359,7 @@ int cs35l41_add_dsd_properties(struct cs35l41_hda *cs35l41, struct device *physd
+@@ -104,7 +328,7 @@ int cs35l41_add_dsd_properties(struct cs35l41_hda *cs35l41, struct device *physd
  		if (!strcmp(model->hid, hid) &&
  		    (!model->ssid ||
  		     (cs35l41->acpi_subsystem_id &&
@@ -348,6 +403,3 @@ index b62a4e6968e2..0d24e2cb3ee3 100644
  			return model->add_prop(cs35l41, physdev, id, hid);
  	}
  
--- 
-2.43.0
-
