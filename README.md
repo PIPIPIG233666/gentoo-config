@@ -2,8 +2,16 @@
 
 ## Things actually used
 
+### etc/portage/patches
+#### all the patches from upstream for ROG Ally
+
+## etc/portage/patches/dl
+#### doas python dl/dl.py
+dl/patch: patch names
+dl/url: patch urls corresponding to the names
+
 ### etc/default/amdgpu-custom-states.card0
-#### AMD GPU overclock profile for RX 6800 XT
+#### AMD GPU overclock profile for RX 780M
 
 ### etc/kernel/cmdline
 #### cmdline for sbctl bundle generation
