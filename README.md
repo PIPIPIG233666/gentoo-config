@@ -6,9 +6,9 @@
 #### all the patches from upstream for ROG Ally
 
 ## etc/portage/patches/dl
-#### doas python dl/dl.py
-dl/patch: patch names
-dl/url: patch urls corresponding to the names
+#### run doas python dl/dl.py
+ - dl/patch: patch names
+ - dl/url: patch urls corresponding to the names
 
 ### etc/default/amdgpu-custom-states.card0
 #### AMD GPU overclock profile for RX 780M
@@ -42,3 +42,6 @@ compiler: llvm-clang, fs: zfs, microcode: amd
 
 ### etc/kernels/kernel-config-*
 kconfig for genkernel
+
+### home/usr
+#### zsh, motd, and steam configs/helper scripts
