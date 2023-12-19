@@ -25,6 +25,8 @@
     enable_statusline_mode = false
 
 [[custom_plugins]]
+name = "github/copilot.vim"
+[[custom_plugins]]
 name = "dracula/vim"
 [options]
 colorscheme = "dracula"
