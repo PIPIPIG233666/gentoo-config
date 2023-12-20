@@ -1,7 +1,8 @@
-From e82d721648b41a887e5ff0189a7494a32946bae1 Mon Sep 17 00:00:00 2001
+From 5efbf21a6dc030b27e32cd632cfde1c3c7801075 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sat, 2 Dec 2023 17:27:23 +1300
-Subject: [PATCH] HID: asus: fix more n-key report descriptors if n-key quirked
+Subject: [PATCH v14.7 1/4] HID: asus: fix more n-key report descriptors if
+ n-key quirked
 
 Adjusts the report descriptor for N-Key devices to
 make the output count 0x01 which completely avoids
@@ -13,7 +14,7 @@ Signed-off-by: Luke D. Jones <luke@ljones.dev>
  1 file changed, 23 insertions(+), 26 deletions(-)
 
 diff --git a/drivers/hid/hid-asus.c b/drivers/hid/hid-asus.c
-index 78cdfb8b9a7aeb..855972a4470fe9 100644
+index 78cdfb8b9a7a..855972a4470f 100644
 --- a/drivers/hid/hid-asus.c
 +++ b/drivers/hid/hid-asus.c
 @@ -335,36 +335,20 @@ static int asus_raw_event(struct hid_device *hdev,
@@ -83,3 +84,6 @@ index 78cdfb8b9a7aeb..855972a4470fe9 100644
  	return rdesc;
  }
  
+-- 
+2.41.0
+

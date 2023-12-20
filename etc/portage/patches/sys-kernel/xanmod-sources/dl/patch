@@ -5,11 +5,11 @@
 0001-drm-amd-display-ensure-async-flips-are-only-accepted-for-fast-updates.patch
 0001-drm-amd-display-PQ-tail-accuracy.patch
 0008-HID-asus-add-const-to-read-only-outgoing-usb-buffer.patch
-# HID-asus starts
-0010-HID-asus-fix-more-n-key-report-descriptors-if-n-key-quirked.patch
-0011-HID-asus-make-asus_kbd_init-generic,-remove-rog_nkey_led_init.patch
-0012-HID-asus-add-ROG-Ally-N-Key-ID-and-keycodes.patch
-0013-HID-asus-add-ROG-Ally-xpad-settings.patch
+# HID-asus starts switched to local ones from discord channel
+# 0010-HID-asus-fix-more-n-key-report-descriptors-if-n-key-quirked.patch
+# 0011-HID-asus-make-asus_kbd_init-generic,-remove-rog_nkey_led_init.patch
+# 0012-HID-asus-add-ROG-Ally-N-Key-ID-and-keycodes.patch
+# 0013-HID-asus-add-ROG-Ally-xpad-settings.patch
 # HID-asus ends
 0014-platform-x86-asus-wmi-disable-USB0-hub-on-ROG-Ally-before-suspend.patch
 0015-This-commit-adds-support-to-the-bmi323-device-on-top-of-the-pre-existing-bmc150-kernel-module.patch
