@@ -25,3 +25,19 @@
 # required by @selected
 # required by @world (argument)
 >=app-arch/bzip2-1.0.8-r4 abi_x86_32
+
+# required by media-libs/mesa-23.3.1::gentoo
+# required by x11-base/xwayland-23.2.3::gentoo
+# required by kde-plasma/kwin-5.27.10-r1::gentoo
+# required by kde-plasma/plasma-desktop-5.27.10-r1::gentoo
+# required by kde-plasma/plasma-meta-5.27.10::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-libs/libglvnd-1.7.0 abi_x86_32
+# required by sys-apps/systemd-254.7::gentoo
+# required by virtual/libudev-251-r2::gentoo
+# required by x11-misc/colord-1.4.6-r2::gentoo
+# required by kde-plasma/plasma-meta-5.27.10::gentoo
+# required by @selected
+# required by @world (argument)
+>=app-arch/lz4-1.9.4 abi_x86_32

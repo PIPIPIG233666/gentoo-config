@@ -1,0 +1,6 @@
+# Install additional packages for optional runtime features:
+app-misc/wayland-utils # for Wayland information module
+app-text/aha
+sys-apps/fwupd # for Firmware security module
+x11-apps/mesa-progs # for OpenGL information module
+x11-apps/xdpyinfo # for X Server information module
