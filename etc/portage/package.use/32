@@ -242,3 +242,69 @@
 # required by media-plugins/gst-plugins-a52dec-1.22.3::gentoo
 # required by @preserved-rebuild (argument)
 >=media-libs/a52dec-0.7.4-r8 abi_x86_32
+
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-meta-1.20.6 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-libs/gst-plugins-good-1.22.3-r2 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[a52,dvd]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-a52dec-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[aac]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-faad-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[dts]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-dts-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[mp3,dvd]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-libs/gst-plugins-ugly-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[dvd]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-dvdread-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[mpeg,-vcd,dvd]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-mpeg2dec-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[dvd]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-resindvd-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[flac]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-flac-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[mp3]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-mpg123-1.22.3-r1 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[pulseaudio]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-pulse-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[x264]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-x264-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-faad-1.22.3::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[aac]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-libs/faad2-2.11.1 abi_x86_32
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[cdda]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-plugins/gst-plugins-cdparanoia-1.22.3 abi_x86_32
+# required by media-plugins/gst-plugins-cdparanoia-1.22.3::gentoo
+# required by media-plugins/gst-plugins-meta-1.20.6::gentoo[cdda]
+# required by app-emulation/wine-proton-8.0.4::gentoo
+# required by wine-proton (argument)
+>=media-sound/cdparanoia-3.10.2-r7 abi_x86_32
