@@ -1,11 +1,11 @@
-#kde-plasma/plasma-meta bluetooth brower-integration colord desktop-portal discover kwallet pulseaudio sddm sdk smart -crypt plymouth
-#kde-apps/kde-apps-meta admin -education -games -graphics -multimedia network utils -accessibility -pim sdk
+kde-plasma/plasma-meta bluetooth brower-integration colord desktop-portal discover kwallet pulseaudio sddm sdk smart -crypt plymouth
+kde-apps/kde-apps-meta admin -education -games -graphics -multimedia network utils -accessibility -pim sdk
 
 # required by kde-misc/kweather-23.04.1::gentoo
 # required by kde-apps/kdeutils-meta-23.04.1::gentoo
 # required by kde-apps/kde-apps-meta-23.04.1::gentoo[utils]
 # required by kde-apps/kde-apps-meta (argument)
-#>=dev-qt/qtpositioning-5.15.9 geoclue
+>=dev-qt/qtpositioning-5.15.9 geoclue
 
 media-video/pipewire sound-server bluetooth X dbus
 media-plugins/alsa-plugins pulseaudio
@@ -16,3 +16,32 @@ media-sound/pulseaudio -daemon
 # from https://github.com/pimvullers/elementary/issues/228
 #media-libs/libsndfile minimal
 #media-sound/mpg123 -pulseaudio
+
+# required by dev-libs/nss-3.94::gentoo
+# required by app-text/poppler-23.11.0::gentoo[nss]
+# required by kde-frameworks/kfilemetadata-5.112.0::gentoo[pdf]
+# required by kde-frameworks/baloo-5.112.0::gentoo
+# required by kde-plasma/plasma-workspace-5.27.9.1::gentoo[semantic-desktop]
+# required by virtual/notification-daemon-0::gentoo[kde]
+# required by x11-libs/libnotify-0.8.3::gentoo
+# required by media-video/vlc-3.0.20-r1::gentoo[libnotify]
+# required by media-libs/phonon-vlc-0.11.3-r1::gentoo
+# required by media-libs/phonon-4.11.1-r2::gentoo[vlc]
+# required by kde-apps/kio-extras-23.08.3::gentoo[phonon]
+>=dev-db/sqlite-3.44.0 abi_x86_32
+# required by virtual/libudev-251-r2::gentoo[-systemd]
+# required by sys-auth/elogind-252.9::gentoo
+# required by sys-fs/udisks-2.10.1::gentoo[elogind]
+# required by kde-frameworks/solid-5.112.0::gentoo
+# required by kde-frameworks/kio-5.112.0::gentoo
+# required by kde-plasma/kactivitymanagerd-5.27.9::gentoo
+# required by kde-frameworks/kactivities-5.112.0::gentoo
+# required by kde-frameworks/kactivities-stats-5.112.0::gentoo
+# required by kde-apps/kio-extras-23.08.3::gentoo[activities]
+# required by kde-plasma/plasma-workspace-5.27.9.1::gentoo
+# required by virtual/notification-daemon-0::gentoo[kde]
+# required by x11-libs/libnotify-0.8.3::gentoo
+# required by media-video/vlc-3.0.20-r1::gentoo[libnotify]
+# required by media-libs/phonon-vlc-0.11.3-r1::gentoo
+# required by media-libs/phonon-4.11.1-r2::gentoo[vlc]
+>=sys-apps/systemd-utils-254.6 abi_x86_32

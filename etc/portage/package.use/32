@@ -1,0 +1,27 @@
+=sys-apps/util-linux-2.39.3-r1 abi_x86_32
+=dev-libs/nss-3.96.1 abi_x86_32
+=sys-apps/systemd-254.7 abi_x86_32
+=media-libs/mesa-23.3.1 abi_x86_32
+=x11-libs/libdrm-2.4.118 abi_x86_32
+=dev-db/sqlite-3.44.2-r1 abi_x86_32
+=net-libs/gnutls-3.8.2 abi_x86_32
+=dev-libs/glib-2.78.3 abi_x86_32
+=x11-libs/libxcb-1.16-r1 abi_x86_32
+=dev-libs/gmp-6.3.0-r1 abi_x86_32
+=sys-devel/llvm-17.0.6 abi_x86_32
+=media-libs/alsa-lib-1.2.10-r3 abi_x86_32
+=media-video/pipewire-1.0.0-r1 abi_x86_32
+=media-libs/libmpg123-1.32.3-r1 abi_x86_32
+# required by dev-libs/nss-3.96.1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-libs/nspr-4.35-r2 abi_x86_32
+
+# required by dev-libs/elfutils-0.190::gentoo[bzip2]
+# required by virtual/libelf-3-r1::gentoo
+# required by media-libs/mesa-23.3.1::gentoo[-video_cards_r600,video_cards_radeon,video_cards_radeonsi,llvm]
+# required by dev-util/aosp-devel-meta-9-r1::pppig
+# required by dev-util/lineageos-devel-meta-19.1::pppig
+# required by @selected
+# required by @world (argument)
+>=app-arch/bzip2-1.0.8-r4 abi_x86_32
