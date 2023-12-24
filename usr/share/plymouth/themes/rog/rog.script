@@ -47,7 +47,7 @@ fun refresh_callback ()
 Plymouth.SetRefreshFunction (refresh_callback);
 
 # display gentoo logo
-gentoo_image = Image("gentoo-signet.png"); # change filename accordingly
+gentoo_image = Image("GKC.png"); # change filename accordingly
 gentoo_sprite = Sprite();
 
 gentoo_sprite.SetImage(gentoo_image);
