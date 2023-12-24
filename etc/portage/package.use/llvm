@@ -4,10 +4,3 @@ sys-devel/clang llvm-libunwind
 sys-devel/clang-common llvm-libunwind
 sys-process/htop llvm-libunwind
 dev-cpp/glog llvm-libunwind
-*/* llvm-libunwind
-# required by media-libs/mesa-23.3.1::gentoo[llvm,-opencl]
-# required by x11-base/xorg-server-21.1.10-r1::gentoo[-minimal]
-# required by app-benchmarks/phoronix-test-suite-9999::guru
-# required by @selected
-# required by @world (argument)
->=sys-devel/llvm-17.0.6 abi_x86_32

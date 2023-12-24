@@ -36,7 +36,7 @@ sys-block/fio aio
 sys-process/htop lm-sensors
 
 # keepassXC
-app-admin/keepassxc browser
+#app-admin/keepassxc browser
 
 # required by sys-devel/llvm-16.0.6::xarblu-overlay[zstd]
 # required by sys-devel/clang-16.0.6::gentoo

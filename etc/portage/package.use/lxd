@@ -1,0 +1,9 @@
+# required by app-containers/lxd-5.20::gentoo
+# required by lxd (argument)
+>=dev-libs/raft-0.18.3 lz4
+# required by app-containers/lxd-5.20::gentoo
+# required by lxd (argument)
+>=dev-util/xdelta-3.0.11-r1 lzma
+# required by app-containers/lxd-5.20::gentoo
+# required by lxd (argument)
+>=sys-fs/squashfs-tools-4.6.1 lzma
