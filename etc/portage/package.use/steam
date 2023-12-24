@@ -1,4 +1,0 @@
-# required by games-util/steam-launcher-1.0.0.78-r1::steam-overlay
-# required by games-util/steam-meta-0-r20220320::steam-overlay
-# required by steam-meta (argument)
->=x11-base/xwayland-23.2.3 libei

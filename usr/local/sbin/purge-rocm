@@ -1,13 +1,14 @@
  emerge -W @stablediffusion
- emerge --depclean dev-util/amd-rocm-meta
- emerge --depclean '*/rocm*'
- emerge --depclean '*/hip*'
- emerge --depclean '*/caffe2*'
- emerge --depclean '*/*torch*'
- emerge --depclean '*/caffe2*'
- emerge --depclean '*/hip*'
- emerge --depclean '*/roc*'
- emerge --depclean '*/hip*'
- emerge --depclean rccl Tensile miopen rocBLAS hip
- emerge --depclean '*/roc*'
- emerge --depclean '*/hip*'
+ emerge -c
+ emerge -c '*/rocm*'
+ emerge -c dev-util/amd-rocm-meta
+ emerge -c '*/rocm*'
+ emerge -c '*/hip*'
+ emerge -c '*/*torch*'
+ emerge -c '*/caffe2*'
+ emerge -c '*/hip*'
+ emerge -c '*/roc*'
+ emerge -c '*/hip*'
+ emerge -c rccl Tensile miopen rocBLAS hip
+ emerge -c '*/roc*'
+ emerge -c '*/hip*'
