@@ -7,3 +7,7 @@
 # required by app-containers/lxd-5.20::gentoo
 # required by lxd (argument)
 >=sys-fs/squashfs-tools-4.6.1 lzma
+# required by app-containers/lxc-5.0.3::gentoo[caps,tools]
+# required by app-containers/lxd-5.20::gentoo
+# required by lxd (argument)
+>=sys-libs/libcap-2.69 static-libs
