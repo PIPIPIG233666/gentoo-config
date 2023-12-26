@@ -1,0 +1,14 @@
+ emerge -W @stablediffusion
+ emerge -c
+ emerge -c '*/rocm*'
+ emerge -c dev-util/amd-rocm-meta
+ emerge -c '*/rocm*'
+ emerge -c '*/hip*'
+ emerge -c '*/*torch*'
+ emerge -c '*/caffe2*'
+ emerge -c '*/hip*'
+ emerge -c '*/roc*'
+ emerge -c '*/hip*'
+ emerge -c rccl Tensile miopen rocBLAS hip
+ emerge -c '*/roc*'
+ emerge -c '*/hip*'

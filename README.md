@@ -2,8 +2,19 @@
 
 ## Things actually used
 
+### etc/fstab
+#### fstab for Ally (using ZFS thus no root in fstab)
+
+### etc/portage/patches
+#### all the patches from upstream for ROG Ally
+
+## etc/portage/patches/dl
+#### run doas python dl/dl.py
+ - dl/patch: patch names
+ - dl/url: patch urls corresponding to the names
+
 ### etc/default/amdgpu-custom-states.card0
-#### AMD GPU overclock profile for RX 6800 XT
+#### AMD GPU overclock profile for RX 780M
 
 ### etc/kernel/cmdline
 #### cmdline for sbctl bundle generation
@@ -34,3 +45,6 @@ compiler: llvm-clang, fs: zfs, microcode: amd
 
 ### etc/kernels/kernel-config-*
 kconfig for genkernel
+
+### home/usr
+#### zsh, motd, and steam configs/helper scripts
