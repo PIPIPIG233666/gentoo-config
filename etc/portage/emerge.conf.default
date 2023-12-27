@@ -1,0 +1,16 @@
+BINPKG_FORMAT="gpkg"
+BINPKG_COMPRESS="lz4"
+EMERGE_DEFAULT_OPTS="--verbose
+--quiet-build
+--keep-going
+--jobs=24 --load-average=25
+--with-bdeps=y --complete-graph=y
+--buildpkg-exclude='sys-kernel/*-sources
+virtual/*
+*/zfs*
+sys-firmware/*
+*-bin
+acct-*/*
+'
+"
+MAKEOPTS="-j24 -l25"

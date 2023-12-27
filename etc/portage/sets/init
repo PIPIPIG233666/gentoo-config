@@ -1,0 +1,5 @@
+dev-vcs/git
+app-arch/lbzip2
+app-arch/lz4
+app-editors/vim
+app-admin/doas

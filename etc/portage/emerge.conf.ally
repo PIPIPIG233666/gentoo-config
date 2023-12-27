@@ -1,0 +1,8 @@
+EMERGE_DEFAULT_OPTS="--verbose
+--quiet-build
+--keep-going
+--jobs=16 --load-average=17
+--with-bdeps=y --complete-graph=y
+--getbinpkg
+--usepkg-exclude='sys-kernel/*'"
+MAKEOPTS="-j16 -l17"
