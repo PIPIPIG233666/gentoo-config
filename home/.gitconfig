@@ -20,14 +20,12 @@
 [user]
 	email = priv@pppig236.com
 	name = pppig236
+	signingkey = FE774BFFB6B3FA39
 [color]
 	ui = auto
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
 [push]
 	autoSetupRemote = true
 [pull]
 	rebase = false
+[commit]
+	gpgsign = true
