@@ -1,0 +1,209 @@
+From ac725310433aea6a7c808b11dab6f1a7d4ecf78e Mon Sep 17 00:00:00 2001
+From: "Yaxun (Sam) Liu" <yaxun.liu@amd.com>
+Date: Thu, 13 Jul 2023 11:45:06 -0400
+Subject: [PATCH] [Driver] Add `-f[no-]offload-uniform-block`
+
+By default, clang assumes HIP kernels are launched with uniform block size,
+which is the case for kernels launched through triple chevron or
+hipLaunchKernelGGL. Clang adds uniform-work-group-size function attribute
+to HIP kernels to allow the backend to do optimizations on that.
+
+However, in some rare cases, HIP kernels can be launched
+through hipExtModuleLaunchKernel where global work size is specified,
+which may result in non-uniform block size.
+
+To be able to support non-uniform block size for HIP kernels,
+an option `-f[no-]offload-uniform-block is added. This option
+is generic for offloading languages. Its default value is on for
+CUDA/HIP and off otherwise.
+
+Make -cl-uniform-work-group-size an alias to -foffload-uniform-block.
+
+Reviewed by: Siu Chi Chan, Matt Arsenault, Fangrui Song, Johannes Doerfert
+
+Differential Revision: https://reviews.llvm.org/D155213
+
+Fixes: SWDEV-406592
+---
+ clang/include/clang/Basic/CodeGenOptions.def  |  1 -
+ clang/include/clang/Basic/LangOptions.def     |  1 +
+ clang/include/clang/Driver/Options.td         | 11 ++++++---
+ clang/lib/CodeGen/CGCall.cpp                  |  9 +++++--
+ clang/lib/CodeGen/Targets/AMDGPU.cpp          |  7 ------
+ clang/lib/Driver/ToolChains/Clang.cpp         |  3 +++
+ clang/test/CodeGenCUDA/amdgpu-kernel-attrs.cu | 10 ++++++++
+ .../test/CodeGenOpenCL/cl-uniform-wg-size.cl  |  1 +
+ clang/test/Driver/hip-options.hip             | 24 +++++++++++++++++++
+ clang/test/Driver/opencl.cl                   |  4 +++-
+ 10 files changed, 57 insertions(+), 14 deletions(-)
+
+diff --git a/clang/include/clang/Basic/CodeGenOptions.def b/clang/include/clang/Basic/CodeGenOptions.def
+index 11aec88c5335d1..f9e9326e5c43eb 100644
+--- a/clang/include/clang/Basic/CodeGenOptions.def
++++ b/clang/include/clang/Basic/CodeGenOptions.def
+@@ -202,7 +202,6 @@ CODEGENOPT(SplitMachineFunctions, 1, 0) ///< Split machine functions using profi
+ /// float-to-int conversion instructions.
+ CODEGENOPT(StrictFloatCastOverflow, 1, 1)
+ 
+-CODEGENOPT(UniformWGSize     , 1, 0) ///< -cl-uniform-work-group-size
+ CODEGENOPT(NoZeroInitializedInBSS , 1, 0) ///< -fno-zero-initialized-in-bss.
+ /// Method of Objective-C dispatch to use.
+ ENUM_CODEGENOPT(ObjCDispatchMethod, ObjCDispatchMethodKind, 2, Legacy)
+diff --git a/clang/include/clang/Basic/LangOptions.def b/clang/include/clang/Basic/LangOptions.def
+index 5f1ebced561506..007b3737f83e62 100644
+--- a/clang/include/clang/Basic/LangOptions.def
++++ b/clang/include/clang/Basic/LangOptions.def
+@@ -278,6 +278,7 @@ LANGOPT(SYCLIsHost        , 1, 0, "SYCL host compilation")
+ ENUM_LANGOPT(SYCLVersion  , SYCLMajorVersion, 2, SYCL_None, "Version of the SYCL standard used")
+ 
+ LANGOPT(HIPUseNewLaunchAPI, 1, 0, "Use new kernel launching API for HIP")
++LANGOPT(OffloadUniformBlock, 1, 0, "Assume that kernels are launched with uniform block sizes (default true for CUDA/HIP and false otherwise)")
+ 
+ LANGOPT(SizedDeallocation , 1, 0, "sized deallocation")
+ LANGOPT(AlignedAllocation , 1, 0, "aligned allocation")
+diff --git a/clang/include/clang/Driver/Options.td b/clang/include/clang/Driver/Options.td
+index dec49001c590e7..8be3fbf61ce106 100644
+--- a/clang/include/clang/Driver/Options.td
++++ b/clang/include/clang/Driver/Options.td
+@@ -912,6 +912,12 @@ def bundle : Flag<["-"], "bundle">;
+ def b : JoinedOrSeparate<["-"], "b">, Flags<[LinkerInput]>,
+   HelpText<"Pass -b <arg> to the linker on AIX">, MetaVarName<"<arg>">,
+   Group<Link_Group>;
++
++defm offload_uniform_block : BoolFOption<"offload-uniform-block",
++  LangOpts<"OffloadUniformBlock">, Default<"LangOpts->CUDA">,
++  PosFlag<SetTrue, [CC1Option], "Assume">, NegFlag<SetFalse, [CC1Option], "Don't assume">,
++  BothFlags<[], " that kernels are launched with uniform block sizes (default true for CUDA/HIP and false otherwise)">>;
++
+ // OpenCL-only Options
+ def cl_opt_disable : Flag<["-"], "cl-opt-disable">, Group<opencl_Group>, Flags<[CC1Option]>,
+   HelpText<"OpenCL only. This option disables all optimizations. By default optimizations are enabled.">;
+@@ -947,9 +953,8 @@ def cl_denorms_are_zero : Flag<["-"], "cl-denorms-are-zero">, Group<opencl_Group
+ def cl_fp32_correctly_rounded_divide_sqrt : Flag<["-"], "cl-fp32-correctly-rounded-divide-sqrt">, Group<opencl_Group>, Flags<[CC1Option]>,
+   HelpText<"OpenCL only. Specify that single precision floating-point divide and sqrt used in the program source are correctly rounded.">,
+   MarshallingInfoFlag<CodeGenOpts<"OpenCLCorrectlyRoundedDivSqrt">>;
+-def cl_uniform_work_group_size : Flag<["-"], "cl-uniform-work-group-size">, Group<opencl_Group>, Flags<[CC1Option]>,
+-  HelpText<"OpenCL only. Defines that the global work-size be a multiple of the work-group size specified to clEnqueueNDRangeKernel">,
+-  MarshallingInfoFlag<CodeGenOpts<"UniformWGSize">>;
++def cl_uniform_work_group_size : Flag<["-"], "cl-uniform-work-group-size">, Group<opencl_Group>, Flags<[CC1Option]>, Alias<foffload_uniform_block>,
++  HelpText<"OpenCL only. Defines that the global work-size be a multiple of the work-group size specified to clEnqueueNDRangeKernel">;
+ def cl_no_stdinc : Flag<["-"], "cl-no-stdinc">, Group<opencl_Group>,
+   HelpText<"OpenCL only. Disables all standard includes containing non-native compiler types and functions.">;
+ def cl_ext_EQ : CommaJoined<["-"], "cl-ext=">, Group<opencl_Group>, Flags<[CC1Option]>,
+diff --git a/clang/lib/CodeGen/CGCall.cpp b/clang/lib/CodeGen/CGCall.cpp
+index 51f43b0797fd0f..e2f26782583727 100644
+--- a/clang/lib/CodeGen/CGCall.cpp
++++ b/clang/lib/CodeGen/CGCall.cpp
+@@ -2397,10 +2397,15 @@ void CodeGenModule::ConstructAttributeList(StringRef Name,
+         // to the compiler that the global work-size be a multiple of
+         // the work-group size specified to clEnqueueNDRangeKernel
+         // (i.e. work groups are uniform).
+-        FuncAttrs.addAttribute("uniform-work-group-size",
+-                               llvm::toStringRef(CodeGenOpts.UniformWGSize));
++        FuncAttrs.addAttribute(
++            "uniform-work-group-size",
++            llvm::toStringRef(getLangOpts().OffloadUniformBlock));
+       }
+     }
++
++    if (TargetDecl->hasAttr<CUDAGlobalAttr>() &&
++        getLangOpts().OffloadUniformBlock)
++      FuncAttrs.addAttribute("uniform-work-group-size", "true");
+   }
+ 
+   // Attach "no-builtins" attributes to:
+diff --git a/clang/lib/CodeGen/Targets/AMDGPU.cpp b/clang/lib/CodeGen/Targets/AMDGPU.cpp
+index bac7787643e33a..6e40c0a6607fae 100644
+--- a/clang/lib/CodeGen/Targets/AMDGPU.cpp
++++ b/clang/lib/CodeGen/Targets/AMDGPU.cpp
+@@ -366,13 +366,6 @@ void AMDGPUTargetCodeGenInfo::setTargetAttributes(
+   if (FD)
+     setFunctionDeclAttributes(FD, F, M);
+ 
+-  const bool IsHIPKernel =
+-      M.getLangOpts().HIP && FD && FD->hasAttr<CUDAGlobalAttr>();
+-
+-  // TODO: This should be moved to language specific attributes instead.
+-  if (IsHIPKernel)
+-    F->addFnAttr("uniform-work-group-size", "true");
+-
+   if (M.getContext().getTargetInfo().allowAMDGPUUnsafeFPAtomics())
+     F->addFnAttr("amdgpu-unsafe-fp-atomics", "true");
+ 
+diff --git a/clang/lib/Driver/ToolChains/Clang.cpp b/clang/lib/Driver/ToolChains/Clang.cpp
+index e20d5e2e362ddb..ff4c9485619fb9 100644
+--- a/clang/lib/Driver/ToolChains/Clang.cpp
++++ b/clang/lib/Driver/ToolChains/Clang.cpp
+@@ -7280,6 +7280,9 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
+     Args.AddLastArg(CmdArgs, options::OPT_fgpu_default_stream_EQ);
+   }
+ 
++  Args.AddLastArg(CmdArgs, options::OPT_foffload_uniform_block,
++                  options::OPT_fno_offload_uniform_block);
++
+   if (IsCudaDevice || IsHIPDevice) {
+     StringRef InlineThresh =
+         Args.getLastArgValue(options::OPT_fgpu_inline_threshold_EQ);
+diff --git a/clang/test/CodeGenCUDA/amdgpu-kernel-attrs.cu b/clang/test/CodeGenCUDA/amdgpu-kernel-attrs.cu
+index 3e602b1c7655e2..a1642421af2c8c 100644
+--- a/clang/test/CodeGenCUDA/amdgpu-kernel-attrs.cu
++++ b/clang/test/CodeGenCUDA/amdgpu-kernel-attrs.cu
+@@ -10,10 +10,18 @@
+ // RUN: %clang_cc1 -triple x86_64-unknown-linux-gnu -emit-llvm \
+ // RUN:     -verify -o - -x hip %s | FileCheck -check-prefix=NAMD %s
+ 
++// RUN: %clang_cc1 -triple amdgcn-amd-amdhsa -foffload-uniform-block \
++// RUN:     -fcuda-is-device -emit-llvm -o - -x hip %s \
++// RUN:     | FileCheck -check-prefixes=CHECK,DEFAULT %s
++// RUN: %clang_cc1 -triple amdgcn-amd-amdhsa -fno-offload-uniform-block \
++// RUN:     -fcuda-is-device -emit-llvm -o - -x hip %s \
++// RUN:     | FileCheck -check-prefixes=NOUB %s
++
+ #include "Inputs/cuda.h"
+ 
+ __global__ void flat_work_group_size_default() {
+ // CHECK: define{{.*}} amdgpu_kernel void @_Z28flat_work_group_size_defaultv() [[FLAT_WORK_GROUP_SIZE_DEFAULT:#[0-9]+]]
++// NOUB: define{{.*}} void @_Z28flat_work_group_size_defaultv() [[NOUB:#[0-9]+]]
+ }
+ 
+ __attribute__((amdgpu_flat_work_group_size(32, 64))) // expected-no-diagnostics
+@@ -45,3 +53,5 @@ __global__ void num_vgpr_64() {
+ // CHECK-DAG: attributes [[WAVES_PER_EU_2]] = {{.*}}"amdgpu-waves-per-eu"="2"
+ // CHECK-DAG: attributes [[NUM_SGPR_32]] = {{.*}}"amdgpu-num-sgpr"="32"
+ // CHECK-DAG: attributes [[NUM_VGPR_64]] = {{.*}}"amdgpu-num-vgpr"="64"
++
++// NOUB-NOT: "uniform-work-group-size"="true"
+diff --git a/clang/test/CodeGenOpenCL/cl-uniform-wg-size.cl b/clang/test/CodeGenOpenCL/cl-uniform-wg-size.cl
+index 76ace5dca21ed5..d139621ede4e7e 100644
+--- a/clang/test/CodeGenOpenCL/cl-uniform-wg-size.cl
++++ b/clang/test/CodeGenOpenCL/cl-uniform-wg-size.cl
+@@ -1,6 +1,7 @@
+ // RUN: %clang_cc1 -emit-llvm -O0 -cl-std=CL1.2 -o - %s 2>&1 | FileCheck %s -check-prefixes CHECK,CHECK-UNIFORM
+ // RUN: %clang_cc1 -emit-llvm -O0 -cl-std=CL2.0 -o - %s 2>&1 | FileCheck %s -check-prefixes CHECK,CHECK-NONUNIFORM
+ // RUN: %clang_cc1 -emit-llvm -O0 -cl-std=CL2.0 -cl-uniform-work-group-size -o - %s 2>&1 | FileCheck %s -check-prefixes CHECK,CHECK-UNIFORM
++// RUN: %clang_cc1 -emit-llvm -O0 -cl-std=CL2.0 -foffload-uniform-block -o - %s 2>&1 | FileCheck %s -check-prefixes CHECK,CHECK-UNIFORM
+ 
+ kernel void ker() {};
+ // CHECK: define{{.*}}@ker() #0
+diff --git a/clang/test/Driver/opencl.cl b/clang/test/Driver/opencl.cl
+index ba1ace5081503b..91484010678bbf 100644
+--- a/clang/test/Driver/opencl.cl
++++ b/clang/test/Driver/opencl.cl
+@@ -17,6 +17,8 @@
+ // RUN: %clang -S -### -cl-denorms-are-zero %s 2>&1 | FileCheck --check-prefix=CHECK-DENORMS-ARE-ZERO %s
+ // RUN: %clang -S -### -cl-fp32-correctly-rounded-divide-sqrt %s 2>&1 | FileCheck --check-prefix=CHECK-ROUND-DIV %s
+ // RUN: %clang -S -### -cl-uniform-work-group-size %s 2>&1 | FileCheck --check-prefix=CHECK-UNIFORM-WG %s
++// RUN: %clang -S -### -foffload-uniform-block %s 2>&1 | FileCheck --check-prefix=CHECK-UNIFORM-WG %s
++// RUN: %clang -S -### -fno-offload-uniform-block -cl-uniform-work-group-size %s 2>&1 | FileCheck --check-prefix=CHECK-UNIFORM-WG %s
+ // RUN: not %clang -cl-std=c99 -DOPENCL %s 2>&1 | FileCheck --check-prefix=CHECK-C99 %s
+ // RUN: not %clang -cl-std=invalid -DOPENCL %s 2>&1 | FileCheck --check-prefix=CHECK-INVALID %s
+ // RUN: %clang -S -### -target spir-unknown-unknown %s 2>&1 | FileCheck --check-prefix=CHECK-W-SPIR-COMPAT %s
+@@ -44,7 +46,7 @@
+ // CHECK-DENORMS-ARE-ZERO-NOT: "-cl-denorms-are-zero"
+ 
+ // CHECK-ROUND-DIV: "-cc1" {{.*}} "-cl-fp32-correctly-rounded-divide-sqrt"
+-// CHECK-UNIFORM-WG: "-cc1" {{.*}} "-cl-uniform-work-group-size"
++// CHECK-UNIFORM-WG: "-cc1" {{.*}} "-foffload-uniform-block"
+ // CHECK-C99: error: invalid value 'c99' in '-cl-std=c99'
+ // CHECK-INVALID: error: invalid value 'invalid' in '-cl-std=invalid'
+ 
