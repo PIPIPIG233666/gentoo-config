@@ -1,7 +1,7 @@
 # Telegram
 # required by net-im/telegram-desktop-4.6.5::gentoo
 # required by telegram-desktop (argument)
-#>=media-video/ffmpeg-4.4.3 opus vpx
+>=media-video/ffmpeg-4.4.3 opus vpx
 
 # fetchcmdwrapper
 # required by app-portage/fetchcommandwrapper-0.8.4-r3::gentoo
@@ -36,7 +36,7 @@ sys-block/fio aio
 sys-process/htop lm-sensors
 
 # keepassXC
-#app-admin/keepassxc browser
+app-admin/keepassxc browser
 
 # required by sys-devel/llvm-16.0.6::xarblu-overlay[zstd]
 # required by sys-devel/clang-16.0.6::gentoo
@@ -44,3 +44,8 @@ sys-process/htop lm-sensors
 >=app-arch/zstd-1.5.5 abi_x86_32
 
 sys-apps/fwupd -dell nvme spi tpm uefi gnutls lzma
+
+# Chromium
+# required by www-client/chromium-120.0.6099.129::gentoo
+# required by chromium (argument)
+>=net-libs/nodejs-20.9.0 inspector
