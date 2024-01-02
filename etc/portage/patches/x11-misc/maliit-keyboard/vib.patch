@@ -1,0 +1,22 @@
+From ba1222002d20b22d38c2f76b7d44fa9e27f9da5b Mon Sep 17 00:00:00 2001
+From: EspiDev <espidev@gmail.com>
+Date: Thu, 23 Nov 2023 13:50:18 -0500
+Subject: [PATCH] Change vibration duration to 10ms
+
+---
+ src/plugin/feedback.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/plugin/feedback.cpp b/src/plugin/feedback.cpp
+index c399b392..bf16cf1a 100644
+--- a/src/plugin/feedback.cpp
++++ b/src/plugin/feedback.cpp
+@@ -55,7 +55,7 @@ Feedback::Feedback(const KeyboardSettings *settings)
+     m_pressEffect->setAttackIntensity(0.0);
+     m_pressEffect->setAttackTime(50);
+     m_pressEffect->setIntensity(0.5);
+-    m_pressEffect->setDuration(100);
++    m_pressEffect->setDuration(10);
+     m_pressEffect->setFadeTime(50);
+     m_pressEffect->setFadeIntensity(0.0);
+ #endif

@@ -1,0 +1,26 @@
+From 309f1ae433d51d9826a81ccf508aaea73f1e6280 Mon Sep 17 00:00:00 2001
+From: Rodney Dawes <dobey.pwns@gmail.com>
+Date: Mon, 1 Aug 2022 17:57:41 -0400
+Subject: [PATCH] qml: Adjust word ribbon height to be less dependent on device
+ units
+
+On Steam Deck, after the previous word ribbon height adjustments, the text
+remained quite small, so just use ribbon height / 2 now for font size, to
+keep the relative size more consistent across devices.
+---
+ qml/WordRibbon.qml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/qml/WordRibbon.qml b/qml/WordRibbon.qml
+index e504f680..16367a24 100644
+--- a/qml/WordRibbon.qml
++++ b/qml/WordRibbon.qml
+@@ -77,7 +77,7 @@ Page {
+                 Layout.fillHeight: true
+ 
+                 font.bold: isPrimaryCandidate || listView.count == 1
+-                font.pixelSize: parent.height - Device.top_margin * 4
++                font.pixelSize: parent.height / 2
+                 text: word
+                 verticalAlignment: Text.AlignVCenter
+                 horizontalAlignment: Text.AlignHCenter

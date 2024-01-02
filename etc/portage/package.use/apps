@@ -51,4 +51,4 @@ sys-apps/fwupd -dell nvme spi tpm uefi gnutls lzma
 >=net-libs/nodejs-20.9.0 inspector
 
 # Anki
-app-misc/anki qt6 lto
+app-misc/anki qt6 lto sync
