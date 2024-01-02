@@ -49,3 +49,6 @@ sys-apps/fwupd -dell nvme spi tpm uefi gnutls lzma
 # required by www-client/chromium-120.0.6099.129::gentoo
 # required by chromium (argument)
 >=net-libs/nodejs-20.9.0 inspector
+
+# Anki
+app-misc/anki qt6 lto
