@@ -1,2 +1,3 @@
-*/linux-firmware initramfs compress-zstd @BINARY-REDISTRIBUTABLE
+*/linux-firmware initramfs compress-zstd @BINARY-REDISTRIBUTABLE savedconfig
 sys-kernel/xanmod-sources symlink
+*/* modules-compress
