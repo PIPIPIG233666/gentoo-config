@@ -22,3 +22,8 @@ https://github.com/NeroReflex/linux/commit/2bf1bd1f2367090e3de8b875311f85a3222f5
 https://github.com/NeroReflex/linux/commit/73f940130867a26e3066e01e53ecf38e19466976.patch
 https://github.com/NeroReflex/linux/commit/76936a15921fbd409b1c472902a3356dbd6a53de.patch
 https://github.com/NeroReflex/linux/commit/2758327094edeececc929c61c4e67e1bf9555ca5.patch
+# 6.5/gpu-reset starts
+# https://gitlab.com/evlaV/linux-integration/-/commit/bbd764041ebb28b3cf4c13a36237af3ddeff7349.patch
+# https://gitlab.com/evlaV/linux-integration/-/commit/f20f3a592ab185097446bbadcbdb0f61b23b59ff.patch
+# https://gitlab.com/evlaV/linux-integration/-/commit/5c6db04a3d4e36b35d6c056f0723957df8585f88.patch
+# 6.5/gpu-reset ends

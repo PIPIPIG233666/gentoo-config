@@ -30,6 +30,10 @@ def download_files_with_names(url_list, output_names, log_file):
             # Use curl to download the file and save it with the specified name
             subprocess.run(['curl', url, '-s', '-o', output_file_path])
 
+            # delete the log
+            if os.path.exists(log_file):
+                os.remove(log_file)
+
             # Write download information to the log file
             log.write(f"Downloaded '{custom_name}' from '{url}'\n")
 

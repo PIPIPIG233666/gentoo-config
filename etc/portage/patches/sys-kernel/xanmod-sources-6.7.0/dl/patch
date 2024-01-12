@@ -22,3 +22,8 @@
 0018-PM-hibernate-Move-to-crypto-APIs-for-LZO-compression.patch
 0019-PM-hibernate-Add-support-for-LZ4-compression-for-hibernation.patch
 0020-PM-hibernate-Support-to-select-compression-algorithm.patch
+# 6.5/gpu-reset starts
+# 0001-drm-Add-GPU-reset-sysfs-event.patch
+# 0002-drm-amdgpu-add-work-function-for-GPU-reset-event.patch
+# 0003-drm-amdgpu-schedule-GPU-reset-event-work-function.patch
+# 6.5/gpu-reset ends
