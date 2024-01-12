@@ -1,4 +1,4 @@
-From 31663e3dd79db5ab73055cc9c7dd4fcaa4dfbc01 Mon Sep 17 00:00:00 2001
+From ad93bd42e1cc5388c7dc16303dc15a5f0a84890e Mon Sep 17 00:00:00 2001
 From: Hamza Mahfooz <hamza.mahfooz@amd.com>
 Date: Fri, 4 Aug 2023 11:13:04 -0400
 Subject: [PATCH] drm/amd/display: ensure async flips are only accepted for
@@ -24,10 +24,10 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 12 deletions(-)
 
 diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_crtc.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_crtc.c
-index f1707c77453b92..64d6e2d3a3219c 100644
+index cb0b48bb2a7d..5b07427bf68f 100644
 --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_crtc.c
 +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_crtc.c
-@@ -474,18 +474,6 @@ static int dm_crtc_helper_atomic_check(struct drm_crtc *crtc,
+@@ -405,18 +405,6 @@ static int amdgpu_dm_crtc_helper_atomic_check(struct drm_crtc *crtc,
  		return -EINVAL;
  	}
  
@@ -46,3 +46,6 @@ index f1707c77453b92..64d6e2d3a3219c 100644
  	/* In some use cases, like reset, no stream is attached */
  	if (!dm_crtc_state->stream)
  		return 0;
+-- 
+2.43.0
+

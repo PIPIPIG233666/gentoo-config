@@ -27,3 +27,4 @@
 # 0002-drm-amdgpu-add-work-function-for-GPU-reset-event.patch
 # 0003-drm-amdgpu-schedule-GPU-reset-event-work-function.patch
 # 6.5/gpu-reset ends
+# https://gitlab.com/evlaV/linux-integration/-/commits/endrift%2F6.1%2Fhid?ref_type=heads (10 patches)

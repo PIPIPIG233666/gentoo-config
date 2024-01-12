@@ -1,0 +1,61 @@
+From 41a9cd92759d7c691d1cbf5bc3a28426ae1713cf Mon Sep 17 00:00:00 2001
+From: Vicki Pfau <vi@endrift.com>
+Date: Tue, 19 Dec 2023 19:38:36 -0800
+Subject: [PATCH 06/10] HID: hid-steam: Better handling of serial number length
+
+The second byte of the GET_STRING_ATTRIB report is a length, so we should set
+the size of the buffer to be the size we're actually requesting, and only
+reject the reply if the length out is nonsensical.
+
+Signed-off-by: Vicki Pfau <vi@endrift.com>
+Signed-off-by: Jiri Kosina <jkosina@suse.com>
+(cherry picked from commit 43565b6788d46820da7d8f5ab1a595398419e914)
+---
+ drivers/hid/hid-steam.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/hid/hid-steam.c b/drivers/hid/hid-steam.c
+index 4f5c647f04dd..a0ed8812e7ea 100644
+--- a/drivers/hid/hid-steam.c
++++ b/drivers/hid/hid-steam.c
+@@ -274,7 +274,7 @@ enum {
+ };
+ 
+ /* Other random constants */
+-#define STEAM_SERIAL_LEN 10
++#define STEAM_SERIAL_LEN 0x15
+ 
+ struct steam_device {
+ 	struct list_head list;
+@@ -421,10 +421,10 @@ static int steam_get_serial(struct steam_device *steam)
+ {
+ 	/*
+ 	 * Send: 0xae 0x15 0x01
+-	 * Recv: 0xae 0x15 0x01 serialnumber (10 chars)
++	 * Recv: 0xae 0x15 0x01 serialnumber
+ 	 */
+ 	int ret = 0;
+-	u8 cmd[] = {ID_GET_STRING_ATTRIBUTE, 0x15, ATTRIB_STR_UNIT_SERIAL};
++	u8 cmd[] = {ID_GET_STRING_ATTRIBUTE, sizeof(steam->serial_no), ATTRIB_STR_UNIT_SERIAL};
+ 	u8 reply[3 + STEAM_SERIAL_LEN + 1];
+ 
+ 	mutex_lock(&steam->report_mutex);
+@@ -434,12 +434,13 @@ static int steam_get_serial(struct steam_device *steam)
+ 	ret = steam_recv_report(steam, reply, sizeof(reply));
+ 	if (ret < 0)
+ 		goto out;
+-	if (reply[0] != ID_GET_STRING_ATTRIBUTE || reply[1] != 0x15 || reply[2] != ATTRIB_STR_UNIT_SERIAL) {
++	if (reply[0] != ID_GET_STRING_ATTRIBUTE || reply[1] < 1 ||
++	    reply[1] > sizeof(steam->serial_no) || reply[2] != ATTRIB_STR_UNIT_SERIAL) {
+ 		ret = -EIO;
+ 		goto out;
+ 	}
+ 	reply[3 + STEAM_SERIAL_LEN] = 0;
+-	strscpy(steam->serial_no, reply + 3, sizeof(steam->serial_no));
++	strscpy(steam->serial_no, reply + 3, reply[1]);
+ out:
+ 	mutex_unlock(&steam->report_mutex);
+ 	return ret;
+-- 
+2.43.0
+
