@@ -2,3 +2,17 @@ x11-base/xorg-drivers -video_cards_radeonsi
 x11-libs/libdrm video_cards_radeon
 media-libs/mesa zink
 media-libs/libglvnd X
+
+# required by media-libs/mesa-24.1.4::gentoo[llvm,-video_cards_r600,video_cards_radeon,video_cards_radeonsi]
+# required by x11-drivers/xf86-video-ati-22.0.0::gentoo
+# required by x11-base/xorg-drivers-21.1-r2::gentoo[-video_cards_radeonsi,video_cards_radeon]
+# required by x11-base/xorg-server-21.1.13-r1::gentoo[xorg]
+# required by x11-drivers/xf86-video-amdgpu-23.0.0::gentoo
+>=virtual/libelf-3-r1 abi_x86_32
+# required by virtual/libelf-3-r1::gentoo
+# required by media-libs/mesa-24.1.4::gentoo[llvm,-video_cards_r600,video_cards_radeon,video_cards_radeonsi]
+# required by x11-drivers/xf86-video-ati-22.0.0::gentoo
+# required by x11-base/xorg-drivers-21.1-r2::gentoo[-video_cards_radeonsi,video_cards_radeon]
+# required by x11-base/xorg-server-21.1.13-r1::gentoo[xorg]
+# required by x11-drivers/xf86-video-amdgpu-23.0.0::gentoo
+>=dev-libs/elfutils-0.191-r1 abi_x86_32

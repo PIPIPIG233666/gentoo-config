@@ -2,6 +2,7 @@
 # required by net-im/telegram-desktop-4.6.5::gentoo
 # required by telegram-desktop (argument)
 >=media-video/ffmpeg-4.4.3 opus vpx
+net-im/telegram-desktop qt6
 
 # fetchcmdwrapper
 # required by app-portage/fetchcommandwrapper-0.8.4-r3::gentoo
@@ -52,3 +53,6 @@ sys-apps/fwupd -dell nvme spi tpm uefi gnutls lzma
 
 # Anki
 app-misc/anki qt6 lto
+
+# vim
+app-editors/vim terminal python

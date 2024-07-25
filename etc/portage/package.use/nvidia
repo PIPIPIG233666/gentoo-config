@@ -1,0 +1,13 @@
+x11-drivers/nvidia-drivers kernel-open
+
+# required by media-libs/mesa-24.1.4::gentoo[llvm_slot_18,llvm]
+# required by gui-libs/egl-gbm-1.1.1-r1::gentoo
+# required by x11-drivers/nvidia-drivers-555.58.02::gentoo[wayland]
+# required by @selected
+# required by @world (argument)
+>=sys-devel/llvm-18.1.8-r2 abi_x86_32
+
+# required by x11-drivers/nvidia-drivers-560.28.03-r1::gentoo[wayland]
+# required by @selected
+# required by @world (argument)
+>=gui-libs/egl-wayland-1.1.13-r1 abi_x86_32

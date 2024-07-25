@@ -26,34 +26,34 @@ location = /var/db/repos/tatsh-overlay
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/tatsh-overlay.git
 
-[pppig]
-location = /var/db/repos/pppig
-sync-type = git
-sync-uri = https://gitlab.com/pig.priv/gentoo_pppig.git
-
 
 [mv]
 location = /var/db/repos/mv
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/mv
 
-[gentoo]
-location = /var/db/repos/gentoo
-sync-type = git
-sync-uri = https://github.com/gentoo-mirror/gentoo.git
-
-[pentoo]
-location = /var/db/repos/pentoo
-sync-type = git
-sync-uri = https://github.com/gentoo-mirror/pentoo.git
-
 [x0rzavi]
 location = /var/db/repos/x0rzavi
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/x0rzavi.git
 
-
-[gnome]
-location = /var/db/repos/gnome
+[src_prepare-overlay]
+location = /var/db/repos/src_prepare-overlay
 sync-type = git
-sync-uri = https://github.com/gentoo-mirror/gnome.git
+sync-uri = https://github.com/gentoo-mirror/src_prepare-overlay.git
+
+
+[pppig]
+location = /var/db/repos/pppig
+sync-type = git
+sync-uri = https://github.com/PIPIPIG233666/gentoo_pppig
+
+[steam-overlay]
+location = /var/db/repos/steam-overlay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/steam-overlay.git
+
+[ryans]
+location = /var/db/repos/ryans
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/ryans.git

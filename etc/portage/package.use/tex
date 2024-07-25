@@ -1,0 +1,7 @@
+# required by dev-texlive/texlive-langcjk-2023_p65824::gentoo
+# required by dev-texlive/texlive-langchinese-2023_p63995::gentoo
+# required by app-text/texlive-2023-r1::gentoo[l10n_zh]
+# required by >=app-text/texlive-2023 (argument)
+>=app-text/texlive-core-2023-r9 cjk
+
+app-text/yexlive extra
