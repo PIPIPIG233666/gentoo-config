@@ -3,7 +3,9 @@ amd-ucode/microcode_amd_fam19h.bin
 amd/amd_sev_fam19h_model0xh.sbin
 amd/amd_sev_fam19h_model1xh.sbin
 amdgpu/dcn_3_1_5_dmcub.bin
+amdgpu/gc_10_3_6_me.bin
 amdgpu/gc_10_3_6_pfp.bin
+amdgpu/psp_13_0_5_ta.bin
 amdgpu/psp_13_0_5_toc.bin
 amdgpu/sdma_5_2_6.bin
 amdgpu/vcn_3_1_2.bin
