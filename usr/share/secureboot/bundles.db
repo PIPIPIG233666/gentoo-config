@@ -1,0 +1,14 @@
+{
+    "/boot/efi/EFI/gentoo/gentoo.efi": {
+        "output": "/boot/efi/EFI/gentoo/gentoo.efi",
+        "intel_microcode": "",
+        "amd_microcode": "",
+        "kernel_image": "/boot/kernel",
+        "initramfs": "/boot/initramfs",
+        "cmdline": "/etc/kernels/cmdline",
+        "splash": "",
+        "os_release": "/usr/lib/os-release",
+        "efi_stub": "/usr/lib/systemd/boot/efi/linuxx64.efi.stub",
+        "esp": ""
+    }
+}
