@@ -14,3 +14,4 @@ acct-*/*
 '
 "
 MAKEOPTS="-j24 -l25"
+CCACHE_DIR="/var/cache/ccache"

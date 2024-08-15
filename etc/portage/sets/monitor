@@ -1,5 +1,5 @@
 sys-process/htop
-sys-process/nvtop
+sys-apps/amdgpu_top
 #sys-apps/psensor
 # move sys-apps/lm_sensors sys-apps/lm-sensors
 sys-apps/lm-sensors

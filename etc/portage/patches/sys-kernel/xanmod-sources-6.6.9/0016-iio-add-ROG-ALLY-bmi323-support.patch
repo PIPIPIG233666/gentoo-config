@@ -1,0 +1,64 @@
+From ba536f02abe52086c5ba828e5b0284988e4d7fdb Mon Sep 17 00:00:00 2001
+From: Denis <benato.denis96@gmail.com>
+Date: Wed, 13 Dec 2023 20:55:59 +0100
+Subject: [PATCH] iio: add ROG ALLY bmi323 support
+
+---
+ drivers/iio/accel/bmc150-accel-core.c | 3 +++
+ drivers/iio/imu/bmi323/bmi323_i2c.c   | 8 ++++++++
+ 2 files changed, 11 insertions(+)
+
+diff --git a/drivers/iio/accel/bmc150-accel-core.c b/drivers/iio/accel/bmc150-accel-core.c
+index 9a2c1732c9ef64..ae90ba2f9a2dba 100644
+--- a/drivers/iio/accel/bmc150-accel-core.c
++++ b/drivers/iio/accel/bmc150-accel-core.c
+@@ -10,6 +10,7 @@
+ #include <linux/delay.h>
+ #include <linux/slab.h>
+ #include <linux/acpi.h>
++#include <linux/dmi.h>
+ #include <linux/of_irq.h>
+ #include <linux/pm.h>
+ #include <linux/pm_runtime.h>
+@@ -2431,6 +2432,8 @@ int bmc150_accel_core_probe(struct device *dev, struct regmap *regmap, int irq,
+ 	struct iio_dev *indio_dev;
+ 	int ret;
+ 
++	if (dmi_match(DMI_BOARD_NAME, "RC71L") || dmi_match(DMI_BOARD_NAME, "Air Plus"))
++		return -ENODEV; // Abort loading bmc150 for ASUS ROG ALLY, Ayaneo Air Plus
+ 	indio_dev = devm_iio_device_alloc(dev, sizeof(*data));
+ 	if (!indio_dev)
+ 		return -ENOMEM;
+diff --git a/drivers/iio/imu/bmi323/bmi323_i2c.c b/drivers/iio/imu/bmi323/bmi323_i2c.c
+index 20a8001b9956a3..346ba2d1a169d4 100644
+--- a/drivers/iio/imu/bmi323/bmi323_i2c.c
++++ b/drivers/iio/imu/bmi323/bmi323_i2c.c
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2023, Jagath Jog J <jagathjog1996@gmail.com>
+  */
+ 
++#include <linux/acpi.h>
+ #include <linux/i2c.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/module.h>
+@@ -93,6 +94,12 @@ static int bmi323_i2c_probe(struct i2c_client *i2c)
+ 	return bmi323_core_probe(dev);
+ }
+ 
++static const struct acpi_device_id bmi323_acpi_match[] = {
++	{"BOSC0200"},
++	{ },
++};
++MODULE_DEVICE_TABLE(acpi, bmi323_acpi_match);
++
+ static const struct i2c_device_id bmi323_i2c_ids[] = {
+ 	{ "bmi323" },
+ 	{ }
+@@ -109,6 +116,7 @@ static struct i2c_driver bmi323_i2c_driver = {
+ 	.driver = {
+ 		.name = "bmi323",
+ 		.of_match_table = bmi323_of_i2c_match,
++		.acpi_match_table = ACPI_PTR(bmi323_acpi_match),
+ 	},
+ 	.probe = bmi323_i2c_probe,
+ 	.id_table = bmi323_i2c_ids,

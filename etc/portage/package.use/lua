@@ -1,0 +1,4 @@
+*/* LUA_TARGETS: -* lua5-4 luajit
+*/* LUA_SINGLE_TARGET: -* luajit
+
+

@@ -1,0 +1,20 @@
+# Remove files that shall not be installed from this list.
+amd/amd_sev_fam19h_model0xh.sbin
+amd/amd_sev_fam19h_model1xh.sbin
+amd-ucode/microcode_amd_fam19h.bin
+amdgpu/sienna_cichlid_ce.bin
+amdgpu/sienna_cichlid_dmcub.bin
+amdgpu/sienna_cichlid_me.bin
+amdgpu/sienna_cichlid_mec.bin
+amdgpu/sienna_cichlid_mec2.bin
+amdgpu/sienna_cichlid_pfp.bin
+amdgpu/sienna_cichlid_rlc.bin
+amdgpu/sienna_cichlid_sdma.bin
+amdgpu/sienna_cichlid_smc.bin
+amdgpu/sienna_cichlid_sos.bin
+amdgpu/sienna_cichlid_ta.bin
+amdgpu/sienna_cichlid_vcn.bin
+intel/ibt-20-1-3.sfi
+intel/ibt-20-1-3.ddc
+iwlwifi-cc-a0-77.ucode
+rtl_nic/rtl8125b-2.fw

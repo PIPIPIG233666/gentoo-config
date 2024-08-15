@@ -1,7 +1,7 @@
 */* PYTHON_TARGETS: -* python3_10 python3_11 python3_12
 */* PYTHON_SINGLE_TARGET: -* python3_11
 
-#dev-lang/python tk
+dev-lang/python tk
 
 # required by net-misc/gdown-4.7.1::guru
 # required by gdown (argument)

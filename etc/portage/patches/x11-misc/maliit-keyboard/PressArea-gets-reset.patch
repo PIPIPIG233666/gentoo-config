@@ -1,0 +1,27 @@
+From 41253c8f8e2addd7a87169bf8858e7bf307bc020 Mon Sep 17 00:00:00 2001
+From: Aleix Pol <aleixpol@kde.org>
+Date: Thu, 9 Mar 2023 04:27:55 +0100
+Subject: [PATCH] Make sure PressArea gets reset when the keyboard hides
+
+When the keyboard hides, pressed would remain true and hover events
+would still trigger as if the drag session never finished.
+
+This makes sure that the press area gets disabled and the swipe works on
+consecutive Panel sessions.
+---
+ qml/keys/PressArea.qml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/qml/keys/PressArea.qml b/qml/keys/PressArea.qml
+index 46f7104f..f44b4beb 100644
+--- a/qml/keys/PressArea.qml
++++ b/qml/keys/PressArea.qml
+@@ -53,6 +53,8 @@ MultiPointTouchArea {
+         holdTimer.stop();
+     }
+ 
++    enabled: MaliitGeometry.shown
++
+     touchPoints: [
+         TouchPoint { 
+             id: point

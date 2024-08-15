@@ -16,3 +16,17 @@ media-sound/pulseaudio -daemon
 # required by kde-apps/kde-apps-meta-23.04.1::gentoo[utils]
 # required by kde-apps/kde-apps-meta (argument)
 >=dev-qt/qtpositioning-5.15.9 geoclue
+
+# required by kde-plasma/discover-6.1.0::gentoo
+# required by kde-plasma/plasma-meta-6.1.0::gentoo[discover]
+# required by @selected
+# required by @world (argument)
+>=dev-libs/appstream-1.0.3 qt6
+# required by kde-plasma/kwin-6.1.0::gentoo
+# required by kde-plasma/plasma-desktop-6.1.0::gentoo
+# required by kde-plasma/plasma-meta-6.1.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=x11-base/xwayland-24.1.0 libei
+
+*/* kf6compat

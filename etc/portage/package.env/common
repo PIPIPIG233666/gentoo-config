@@ -1,6 +1,9 @@
 ## bazel doesn't like ccache
 dev-util/bazel no-ccache.conf
 #dev-util/bazel clang-no-Werror.conf
+
+# java doesnt like ccache
+dev-java/openjdk no-ccache.conf
 #
 ## Telegram doesn't like ccache due to precompiled headers
 #net-im/telegram-desktop no-ccache.conf
