@@ -32,11 +32,6 @@ location = /var/db/repos/mv
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/mv
 
-[pentoo]
-location = /var/db/repos/pentoo
-sync-type = git
-sync-uri = https://github.com/gentoo-mirror/pentoo.git
-
 [x0rzavi]
 location = /var/db/repos/x0rzavi
 sync-type = git
@@ -67,3 +62,18 @@ sync-uri = https://github.com/gentoo-mirror/inode64-overlay.git
 location = /var/db/repos/HomeAssistantRepository
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/HomeAssistantRepository.git
+
+[lmiphay]
+location = /var/db/repos/lmiphay
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/lmiphay.git
+
+[xira]
+location = /var/db/repos/xira
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/xira.git
+
+[pf4p]
+location = /var/db/repos/pf4p
+sync-type = git
+sync-uri = https://github.com/PF4Public/gentoo-overlay

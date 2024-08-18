@@ -14,3 +14,10 @@ media-libs/libsdl2 gles2
 
 # use pipewire
 */* pipewire
+
+# from hyprland wiki
+dev-qt/qtbase opengl egl eglfs gles2-only
+dev-qt/qtdeclarative opengl
+sys-apps/xdg-desktop-portal screencast
+
+app-misc/brightnessctl systemd -udev
