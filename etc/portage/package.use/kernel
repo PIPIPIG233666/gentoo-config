@@ -1,3 +1,4 @@
 */linux-firmware initramfs compress-zstd @BINARY-REDISTRIBUTABLE savedconfig
 sys-kernel/xanmod-sources symlink
 */* modules-compress
+sys-kernel/installkernel systemd -dracut efistub -grub -refind -systemd-boot -ugrd uki ukify
