@@ -1,4 +1,5 @@
 #app-eselect/eselect-hyprland-dotfiles
+app-misc/brightnessctl
 app-misc/ddcutil
 dev-libs/gjs
 dev-ruby/sass
@@ -6,6 +7,7 @@ gnome-base/gsettings-desktop-schemas
 gnome-extra/ags
 gui-apps/hyprpaper
 gui-apps/swww
+gui-apps/waybar
 gui-apps/wl-clipboard
 gui-apps/wofi
 gui-wm/hyprland
@@ -13,9 +15,15 @@ media-fonts/fonts-meta
 media-fonts/nerdfonts
 media-fonts/noto-emoji
 media-gfx/imv
-app-misc/brightnessctl
+net-libs/libsoup
 sys-apps/fd
 sys-apps/xdg-desktop-portal-hyprland
+x11-libs/gtksourceview:3.0
 x11-misc/dunst
 x11-misc/sddm
 x11-terms/kitty
+xfce-base/thunar
+
+gui-apps/swaync
+media-sound/cava
+net-wireless/blueman

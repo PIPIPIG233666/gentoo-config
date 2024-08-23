@@ -48,3 +48,7 @@ kconfig for genkernel
 
 ### home/usr
 #### zsh, motd, and steam configs/helper scripts
+
+### wpa_supplicant
+`systemctl enable wpa_supplicant-nl80211@wlan0.service`
+and edit `/etc/wpa_supplicant/wpa_supplicant.conf`
