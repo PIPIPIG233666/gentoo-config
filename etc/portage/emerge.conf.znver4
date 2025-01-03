@@ -3,7 +3,7 @@ BINPKG_COMPRESS="lz4"
 EMERGE_DEFAULT_OPTS="--verbose
 --quiet-build
 --keep-going
---jobs=24 --load-average=25
+--jobs=32 --load-average=31
 --with-bdeps=y --complete-graph=y
 --buildpkg-exclude='sys-kernel/*-sources
 virtual/*
@@ -13,4 +13,4 @@ sys-firmware/*
 acct-*/*
 '
 "
-MAKEOPTS="-j24 -l25"
+MAKEOPTS="-j32 -l31"

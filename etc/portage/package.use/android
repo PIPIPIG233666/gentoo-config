@@ -21,3 +21,16 @@
 # required by dev-util/lineageos-devel-meta-19.1::pppig
 # required by lineageos-devel-meta (argument)
 >=sys-libs/gpm-1.20.7-r5 abi_x86_32
+
+# required by sys-apps/selinux-python-3.7-r1::gentoo[-test]
+# required by sys-apps/policycoreutils-3.7::gentoo
+# required by policycoreutils (argument)
+>=sys-libs/libselinux-3.7-r1 pytho
+# required by sys-apps/selinux-python-3.7-r1::gentoo[-test]
+# required by sys-apps/policycoreutils-3.7::gentoo
+# required by policycoreutils (argument)
+>=sys-libs/libselinux-3.7-r1 python
+# required by sys-apps/selinux-python-3.7-r1::gentoo[-test]
+# required by sys-apps/policycoreutils-3.7::gentoo
+# required by policycoreutils (argument)
+>=sys-process/audit-4.0.1-r1 python

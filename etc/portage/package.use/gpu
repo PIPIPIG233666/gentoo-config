@@ -16,3 +16,7 @@ media-libs/libglvnd X
 # required by x11-base/xorg-server-21.1.13-r1::gentoo[xorg]
 # required by x11-drivers/xf86-video-amdgpu-23.0.0::gentoo
 >=dev-libs/elfutils-0.191-r1 abi_x86_32
+
+# required by x11-drivers/nvidia-drivers-565.57.01-r2::gentoo[wayland,X]
+# required by x11-drivers/nvidia-drivers (argument)
+>=gui-libs/egl-x11-1.0.0_pre20240919 abi_x86_32
