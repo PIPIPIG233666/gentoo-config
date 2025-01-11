@@ -1,2 +1,3 @@
 usr/share/secureboot/keys/
 usr/share/secureboot/GUID
+._cfg*

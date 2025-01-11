@@ -4,8 +4,9 @@ app-misc/ddcutil
 dev-libs/gjs
 dev-ruby/sass
 gnome-base/gsettings-desktop-schemas
-gnome-extra/ags
+gui-apps/ags
 gui-apps/hyprpaper
+gui-apps/swaync
 gui-apps/swww
 gui-apps/waybar
 gui-apps/wl-clipboard
@@ -15,7 +16,9 @@ media-fonts/fonts-meta
 media-fonts/nerdfonts
 media-fonts/noto-emoji
 media-gfx/imv
+media-sound/cava
 net-libs/libsoup
+net-wireless/blueman
 sys-apps/fd
 sys-apps/xdg-desktop-portal-hyprland
 x11-libs/gtksourceview:3.0
@@ -23,7 +26,3 @@ x11-misc/dunst
 x11-misc/sddm
 x11-terms/kitty
 xfce-base/thunar
-
-gui-apps/swaync
-media-sound/cava
-net-wireless/blueman

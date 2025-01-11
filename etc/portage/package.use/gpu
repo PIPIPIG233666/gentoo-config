@@ -20,3 +20,13 @@ media-libs/libglvnd X
 # required by x11-drivers/nvidia-drivers-565.57.01-r2::gentoo[wayland,X]
 # required by x11-drivers/nvidia-drivers (argument)
 >=gui-libs/egl-x11-1.0.0_pre20240919 abi_x86_32
+
+x11-drivers/nvidia-drivers powerd persistenced
+*/* cuda nvenc
+media-libs/opencv contrib
+
+# required by sci-libs/caffe2-2.5.1-r7::gentoo[cuda]
+# required by sci-libs/pytorch-2.5.1-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-util/nvidia-cuda-toolkit-12.6.1 profiler
