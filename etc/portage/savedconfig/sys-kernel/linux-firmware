@@ -23,6 +23,6 @@ amdgpu/vcn_3_1_2.bin
 mediatek/BT_RAM_CODE_MT7922_1_1_hdr.bin
 mediatek/WIFI_MT7922_patch_mcu_1_1_hdr.bin
 mediatek/WIFI_RAM_CODE_MT7922_1.bin
-nvidia/560.28.03/gsp_ga10x.bin
+nvidia/570.86.16/gsp_ga10x.bin
 regulatory.db
 regulatory.db.p7s
