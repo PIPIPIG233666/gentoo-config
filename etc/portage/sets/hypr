@@ -11,6 +11,7 @@ gui-apps/swww
 gui-apps/waybar
 gui-apps/wl-clipboard
 gui-apps/wofi
+gui-libs/xdg-desktop-portal-hyprland
 gui-wm/hyprland
 media-fonts/fonts-meta
 media-fonts/nerdfonts
@@ -20,7 +21,6 @@ media-sound/cava
 net-libs/libsoup
 net-wireless/blueman
 sys-apps/fd
-sys-apps/xdg-desktop-portal-hyprland
 x11-libs/gtksourceview:3.0
 x11-misc/dunst
 x11-misc/sddm

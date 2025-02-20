@@ -1,0 +1,6 @@
+CC="clang"
+CXX="clang++"
+
+CFLAGS="-march=native -O3 -pipe -flto=thin"
+CXXFLAGS="${CFLAGS}"
+LDFLAGS="-Wl,-z,notext"

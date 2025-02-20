@@ -1,0 +1,3 @@
+CC="gcc-13"
+CXX="g++-13"
+NVCC_PREPEND_FLAGS="--compiler-bindir /usr/x86_64-pc-linux-gnu/gcc-bin/13"
