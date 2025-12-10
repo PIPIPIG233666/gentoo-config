@@ -1,5 +1,6 @@
 CC="clang"
 CXX="clang++"
+FC="flang"
 
 CFLAGS="-march=native -O2 -pipe"
 CXXFLAGS="${CFLAGS}"

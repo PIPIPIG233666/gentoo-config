@@ -1,12 +1,11 @@
 CFLAGS="${CFLAGS} -flto=thin"
-CXXFLAGS="${CXXFLAGS} -flto=thin"
+CXXFLAGS="${CXXFLAGS} -flto=thin -fclang-abi-compat=17"
 # -O2 in LDFLAGS refers to binary size optimization during linking, it is NOT related to the -O levels of the compiler              
 LDFLAGS="${LDFLAGS} -Wl,-O2 -Wl,--as-needed"
 
-CC="clang"
-CXX="clang++"
-CPP="clang-cpp" # necessary for xorg-server and possibly other packages
-FC="flang"
+CC="clang-19"
+CXX="clang++-19"
+CPP="clang-cpp-19" # necessary for xorg-server and possibly other packages
 AR="llvm-ar"
 NM="llvm-nm"
 RANLIB="llvm-ranlib"

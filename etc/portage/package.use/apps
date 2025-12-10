@@ -3,6 +3,10 @@
 # required by telegram-desktop (argument)
 >=media-video/ffmpeg-4.4.3 opus vpx
 net-im/telegram-desktop qt6
+# required by net-im/telegram-desktop-5.13.1-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-video/ffmpeg-7.1.1 lame twolame amrenc
 
 # fetchcmdwrapper
 # required by app-portage/fetchcommandwrapper-0.8.4-r3::gentoo
@@ -238,6 +242,12 @@ net-im/discord appindicator
 # required by @selected
 # required by @world (argument)
 >=media-libs/gd-2.3.3-r4 fontconfig
+# required by media-libs/libsdl2-2.32.50::gentoo-zh
+# required by media-libs/sdl2-image-2.8.5::gentoo
+# required by app-benchmarks/phoronix-test-suite-9999::guru[sdl]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libsdl3-3.2.4:3 abi_x86_32
 # required by media-libs/libsdl2-2.32.0::gentoo[udev]
 # required by app-benchmarks/phoronix-test-suite-9999::guru[sdl]
 # required by @selected
@@ -259,3 +269,31 @@ net-im/discord appindicator
 # required by @selected
 # required by @world (argument)
 >=media-libs/glu-9.0.3 abi_x86_32
+
+app-misc/fastfetch X dbus opengl pulseaudio vulkan wayland xcb chafa ddcutil drm elf imagemagick opencl sqlite xrandr
+
+# required by www-client/firefox-136.0.2::gentoo[system-libvpx]
+# required by firefox (argument)
+>=media-libs/libvpx-1.14.1 postproc
+# required by www-client/firefox-136.0.2::gentoo[X,pgo]
+# required by firefox (argument)
+>=x11-base/xorg-server-21.1.16 xvfb
+
+www-client/firefox pulseaudio hwaccel
+
+app-text/texlive xetex science graphics extra cjk
+# required by dev-texlive/texlive-xetex-2024_p71515::gentoo
+# required by app-text/texlive-2024::gentoo[xetex]
+# required by @selected
+# required by @world (argument)
+>=app-text/texlive-core-2024-r1 xetex
+
+app-editors/vscode egl
+app-editors/cursor egl
+net-p2p/transmission cli
+
+# required by dev-embedded/arduino-1.8.19-r1::gentoo
+# required by arduino (argument)
+>=dev-util/astyle-3.6.7 java
+
+dev-db/mysql router 

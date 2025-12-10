@@ -1,3 +1,11 @@
+NVCC_PREPEND_FLAGS="--compiler-bindir /usr/x86_64-pc-linux-gnu/gcc-bin/13"
+
+CFLAGS="-flto=32 -march=native -O2 -pipe"
+CXXFLAGS="${CFLAGS}"
+
 CC="gcc-13"
 CXX="g++-13"
-NVCC_PREPEND_FLAGS="--compiler-bindir /usr/x86_64-pc-linux-gnu/gcc-bin/13"
+CPP="gcc-13 -E"
+AR="ar"
+NM="nm"
+RANLIB="ranlib"

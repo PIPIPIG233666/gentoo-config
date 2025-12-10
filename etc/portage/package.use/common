@@ -1,1 +1,2 @@
-*/* graphite pgo lto vulkan zstd
+*/* graphite pgo lto vulkan zstd default-lld
+dev-lang/rust mrustc-bootstrap

@@ -1,3 +1,6 @@
+# automatic111
 >dev-python/antlr4-python3-runtime-4.9.3
-# unmask after python 3.12 stable rel
-#<=dev-python/cryptography-41.0.3
+
+# https://bugs.gentoo.org/965451
+# wait till this actually gets fixed
+>dev-python/pip-25.2

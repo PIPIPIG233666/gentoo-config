@@ -1,5 +1,12 @@
 >=gui-libs/gtk-layer-shell-0.8.2 introspection
 dev-lang/spidermonkey clang
+sys-auth/polkit -gtk
+media-fonts/victor-mono ttf
+
+# required by dev-libs/nettle-3.10.1::gentoo[gmp]
+# required by dev-libs/nettle (argument)
+>=dev-libs/gmp-6.3.0-r1 static-libs
+dev-libs/nettle static-libs
 
 # enable wayland for all packages
 */* wayland
@@ -26,18 +33,6 @@ gnome-extra/nm-applet appindicator
 >=gui-libs/gtk-layer-shell-0.8.2 vala
 
 x11-misc/xdg-utils gnome
-
-#
-# required by media-sound/pulseaudio-daemon-17.0-r1::gentoo[alsa-plugin,alsa]
-# required by media-libs/libpulse-17.0::gentoo
-# required by gui-apps/ags-1.8.2-r3::hyprland-overlay
-# required by @hypr
-# required by @selected
-# required by @world (argument)
->=media-plugins/alsa-plugins-1.2.12 pulseaudio
-
-media-sound/spotify pulseaudio
-
 # required by media-libs/libsndfile-1.2.2-r2::gentoo[-minimal]
 # required by media-sound/pulseaudio-daemon-17.0-r1::gentoo
 # required by media-libs/libpulse-17.0::gentoo
@@ -66,3 +61,39 @@ gui-apps/rofi-wayland drun windowmode
 # required by @selected
 # required by @world (argument)
 >=dev-libs/fribidi-1.0.16 abi_x86_32
+
+# required by gui-libs/astal-io-0.1_pre20250429::vimproved
+# required by gui-libs/astal-0.1_pre20250429::vimproved
+# required by gui-libs/astal-gjs-0.1_pre20250429::vimproved
+# required by gui-apps/ags-2.3.0::vimproved
+# required by @hypr
+# required by @selected
+# required by @world (argument)
+>=dev-lang/vala-0.56.18 valadoc
+# required by gui-libs/astal-0.1_pre20250429::vimproved[gtk4]
+# required by gui-libs/astal-gjs-0.1_pre20250429::vimproved
+# required by gui-apps/ags-2.3.0::vimproved
+# required by @hypr
+# required by @selected
+# required by @world (argument)
+>=gui-libs/gtk4-layer-shell-1.1.1 vala introspection
+
+*/* jack pulseaudio alsa
+
+# required by media-plugins/gst-plugins-meta-1.24.11::gentoo[jack]
+# required by app-emulation/wine-proton-10.0.1f::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-plugins/gst-plugins-jack-1.24.11 abi_x86_32
+# required by media-plugins/gst-plugins-jack-1.24.11::gentoo
+# required by media-plugins/gst-plugins-meta-1.24.11::gentoo[jack]
+# required by app-emulation/wine-proton-10.0.1f::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-sound/jack2-1.9.22 abi_x86_32
+# required by media-libs/libsdl2-2.32.8::gentoo[jack]
+# required by media-sound/cava-0.10.4::gentoo[sdl]
+# required by @hypr
+# required by @selected
+# required by @world (argument)
+>=virtual/jack-2 abi_x86_32

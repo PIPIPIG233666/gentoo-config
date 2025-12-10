@@ -72,59 +72,6 @@ app-arch/bzip2 abi_x86_32
 # required by @selected
 # required by @world (argument)
 >=dev-libs/libpcre2-10.44-r1 abi_x86_32
-# required by media-libs/libpulse-17.0::gentoo
-# required by games-util/steam-launcher-1.0.0.79::steam-overlay[pulseaudio]
-# required by games-util/steam-meta-0-r20220320::steam-overlay
-# required by @selected
-# required by @world (argument)
->=media-libs/libsndfile-1.2.2-r2 abi_x86_32
-# required by media-libs/libsndfile-1.2.2-r2::gentoo[-minimal]
-# required by @selected
-# required by @world (argument)
->=media-libs/opus-1.5.2 abi_x86_32
-# required by media-libs/libsndfile-1.2.2-r2::gentoo[-minimal]
-# required by @selected
-# required by @world (argument)
->=media-sound/mpg123-base-1.32.3 abi_x86_32
-
-# required by games-util/steam-meta-0-r20220320::steam-overlay
-# required by @selected
-# required by @world (argument)
->=x11-libs/libX11-1.8.9 abi_x86_32
-# required by games-util/steam-launcher-1.0.0.78-r1::steam-overlay
-# required by games-util/steam-meta-0-r20220320::steam-overlay
-# required by @selected
-# required by @world (argument)
->=x11-libs/libxcb-1.17.0 abi_x86_32
-# required by games-util/steam-launcher-1.0.0.78-r1::steam-overlay
-# required by games-util/steam-meta-0-r20220320::steam-overlay
-# required by @selected
-# required by @world (argument)
->=x11-libs/libXdmcp-1.1.5 abi_x86_32
-
-# required by games-util/steam-launcher-1.0.0.79::steam-overlay
-# required by games-util/steam-meta-0-r20220320::steam-overlay
-# required by @selected
-# required by @world (argument)
->=media-libs/fontconfig-2.15.0 abi_x86_32
-# required by games-util/steam-launcher-1.0.0.79::steam-overlay[pulseaudio]
-# required by games-util/steam-meta-0-r20220320::steam-overlay
-# required by @selected
-# required by @world (argument)
->=media-libs/libpulse-17.0 abi_x86_32
-# required by games-util/steam-launcher-1.0.0.79::steam-overlay[video_cards_nvidia]
-# required by games-util/steam-meta-0-r20220320::steam-overlay
-# required by @selected
-# required by @world (argument)
->=x11-drivers/nvidia-drivers-555.58.02 abi_x86_32
-# required by media-libs/libglvnd-1.7.0::gentoo[X]
-# required by x11-drivers/nvidia-drivers-555.58.02::gentoo[X]
-# required by games-util/steam-launcher-1.0.0.79::steam-overlay[video_cards_nvidia]
-# required by games-util/steam-meta-0-r20220320::steam-overlay
-# required by @selected
-# required by @world (argument)
->=x11-libs/libXext-1.3.6 abi_x86_32
-
 # required by media-libs/mesa-24.1.3::gentoo[llvm_slot_17,llvm]
 # required by games-util/heroic-bin-2.14.1-r1::gentoo
 # required by @selected
@@ -249,3 +196,25 @@ app-arch/bzip2 abi_x86_32
 # required by @selected
 # required by @world (argument)
 >=dev-lang/rust-1.79.0 abi_x86_32
+
+# required by virtual/libusb-0-r2::gentoo
+# required by dev-embedded/avrdude-7.2::gentoo
+# required by dev-embedded/qmk-1.1.6::vimproved
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libusb-compat-0.1.8 abi_x86_32
+
+# required by dev-libs/elfutils-0.193::gentoo[lzma]
+# required by virtual/libelf-3-r1::gentoo
+# required by dev-libs/glib-2.84.3::gentoo
+# required by app-editors/cursor-1.2.4::gentoo-zh
+# required by @selected
+# required by @world (argument)
+>=app-arch/xz-utils-5.8.1-r1 abi_x86_32
+
+# required by media-libs/tiff-4.7.0-r1::gentoo[webp]
+# required by media-libs/sdl-image-1.2.12_p20220527-r1::gentoo[tiff]
+# required by app-benchmarks/phoronix-test-suite-9999::guru[sdl]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libwebp-1.6.0 abi_x86_32

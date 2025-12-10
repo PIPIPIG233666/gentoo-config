@@ -1,5 +1,5 @@
-*/* PYTHON_TARGETS: -* python3_10 python3_11 python3_12 python3_13
-*/* PYTHON_SINGLE_TARGET: -* python3_12
+*/* PYTHON_TARGETS: -* python3_11 python3_12 python3_13 python3_14
+*/* PYTHON_SINGLE_TARGET: -* python3_13
 
 #dev-lang/python tk
 
@@ -20,3 +20,13 @@ dev-python/requests socks5
 # required by dev-python/pywavelets-1.4.1::gentoo[-test]
 # required by @stablediffusion (argument)
 >=media-gfx/imagemagick-7.1.1.11-r1 jpeg tiff
+
+# required by dev-python/conda-libmamba-solver-25.4.0::gentoo-zh
+# required by dev-python/conda-25.5.1::gentoo-zh[mamba,-test]
+# required by conda (argument)
+>=dev-util/mamba-2.2.0 python
+# required by dev-util/mamba-2.2.0::gentoo-zh
+# required by dev-python/conda-libmamba-solver-25.4.0::gentoo-zh
+# required by dev-python/conda-25.5.1::gentoo-zh[mamba,-test]
+# required by conda (argument)
+>=sys-libs/libsolv-0.7.33 conda
