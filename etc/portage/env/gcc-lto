@@ -4,6 +4,7 @@ CXXFLAGS="${CFLAGS}"
 
 CC="gcc"
 CXX="g++"
+FC="gfortran"
 CPP="gcc -E"
 AR="ar"
 NM="nm"

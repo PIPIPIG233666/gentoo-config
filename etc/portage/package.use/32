@@ -218,3 +218,84 @@ app-arch/bzip2 abi_x86_32
 # required by @selected
 # required by @world (argument)
 >=media-libs/libwebp-1.6.0 abi_x86_32
+
+# required by media-libs/mesa-25.3.1::gentoo[vulkan]
+# required by app-editors/vscode-1.107.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-libs/libdisplay-info-0.3.0 abi_x86_32
+# required by app-emulation/wine-proton-10.0.3::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-plugins/gst-plugins-libav-1.24.11 abi_x86_32
+# required by media-plugins/gst-plugins-libav-1.24.11::gentoo
+# required by app-emulation/wine-proton-10.0.3::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-video/ffmpeg-8.0.1 abi_x86_32
+# required by media-libs/mesa-25.3.1::gentoo
+# required by app-editors/vscode-1.107.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=virtual/zlib-1.3.1-r1 abi_x86_32
+
+# required by media-video/ffmpeg-8.0.1::gentoo[amrenc]
+# required by media-plugins/gst-plugins-libav-1.24.11::gentoo
+# required by app-emulation/wine-proton-10.0.3::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-libs/vo-amrwbenc-0.1.3 abi_x86_32
+# required by media-video/ffmpeg-8.0.1::gentoo[dav1d]
+# required by media-plugins/gst-plugins-libav-1.24.11::gentoo
+# required by app-emulation/wine-proton-10.0.3::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-libs/dav1d-1.5.1 abi_x86_32
+# required by media-video/ffmpeg-8.0.1::gentoo[jpegxl]
+# required by media-plugins/gst-plugins-libav-1.24.11::gentoo
+# required by app-emulation/wine-proton-10.0.3::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libjxl-0.11.1 abi_x86_32
+# required by media-video/ffmpeg-8.0.1::gentoo[libass]
+# required by media-plugins/gst-plugins-libav-1.24.11::gentoo
+# required by app-emulation/wine-proton-10.0.3::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libass-0.17.4 abi_x86_32
+# required by media-video/ffmpeg-8.0.1::gentoo[twolame]
+# required by media-plugins/gst-plugins-libav-1.24.11::gentoo
+# required by app-emulation/wine-proton-10.0.3::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-sound/twolame-0.4.0-r1 abi_x86_32
+# required by media-video/ffmpeg-8.0.1::gentoo[vpx]
+# required by media-plugins/gst-plugins-libav-1.24.11::gentoo
+# required by app-emulation/wine-proton-10.0.3::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libvpx-1.15.2 abi_x86_32
+# required by media-video/ffmpeg-8.0.1::gentoo[xvid]
+# required by media-plugins/gst-plugins-libav-1.24.11::gentoo
+# required by app-emulation/wine-proton-10.0.3::gentoo[gstreamer]
+# required by @selected
+# required by @world (argument)
+>=media-libs/xvid-1.3.7-r2 abi_x86_32
+# required by media-libs/libjxl-0.11.1::gentoo
+# required by media-video/ffmpeg-7.1.3::gentoo[jpegxl]
+# required by net-im/telegram-desktop-6.3.3::gentoo
+# required by @selected
+# required by @world (argument)
+>=app-arch/brotli-1.2.0 abi_x86_32
+# required by media-libs/libjxl-0.11.1::gentoo
+# required by media-video/ffmpeg-7.1.3::gentoo[jpegxl]
+# required by net-im/telegram-desktop-6.3.3::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-cpp/highway-1.3.0 abi_x86_32
+# required by media-libs/libjxl-0.11.1::gentoo[gif]
+# required by media-video/ffmpeg-7.1.3::gentoo[jpegxl]
+# required by net-im/telegram-desktop-6.3.3::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-libs/giflib-5.2.2 abi_x86_32

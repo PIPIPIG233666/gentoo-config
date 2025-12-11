@@ -1,0 +1,131 @@
+# use old gcc for nvidia
+dev-util/nvidia-cuda-toolkit nvcc
+sci-ml/caffe2 nvcc
+sci-libs/caffe2 nvcc
+app-misc/ollama gcc-lto
+media-libs/opencv nvcc
+sys-libs/libnvidia-container gcc
+dev-lang/python gcc-lto
+net-libs/libidn2 gcc-lto
+net-libs/gnutls gcc-lto
+
+## Move package downwards in the list until it compiles.
+## Bug# is for bugs.gentoo.org
+
+# clang, no lto
+media-libs/alsa-lib clang #616108 #669086
+media-libs/dav1d clang #801172
+sys-apps/pciutils clang #852929
+sys-fs/fuse clang #853058
+sys-libs/libxcrypt clang #852917 (doesn't work with lto says upstream)
+dev-lang/luajit clang
+dev-libs/mpdecimal clang
+dev-libs/tree-sitter clang
+dev-libs/libutf8proc clang
+dev-libs/tree-sitter-* clang
+dev-python/rich clang
+sys-apps/i2c-tools clang
+sys-apps/edid-decode clang
+dev-libs/libx86emu clang
+sys-process/schedtool clang
+dev-util/diffstat clang
+app-text/tree clang
+dev-util/mkbootimg clang
+net-analyzer/traceroute clang
+sys-apps/semodule-utils clang
+media-libs/libnsgif clang
+sys-apps/dmidecode clang
+
+sys-libs/readline clang
+# perl doesn't work with lto
+dev-lang/perl clang
+perl-*/* clang
+dev-perl/* clang
+app-text/* clang
+sys-devel/bin86 clang
+dev-db/sqlite clang
+
+# gcc, with lto
+#dev-libs/protobuf gcc-lto
+media-video/pipewire gcc-lto #802162
+media-libs/tg_owt gcc-lto
+sys-devel/gcc gcc-lto
+sys-libs/glibc gcc-lto
+app-shells/bash gcc-lto
+sys-devel/binutils gcc-lto
+dev-python/zstandard gcc-lto
+net-libs/glib-networking gcc-lto
+dev-libs/nettle gcc-lto
+app-misc/fastfetch gcc-lto
+# Compulsory gcc needed
+app-admin/eselect gcc-lto
+app-arch/bzip2 gcc-lto
+app-arch/gzip gcc-lto
+app-arch/xz-utils gcc-lto
+app-arch/tar gcc-lto
+app-shells/bash gcc-lto
+net-misc/rsync gcc-lto
+net-misc/wget gcc-lto
+sys-devel/autoconf gcc-lto
+sys-devel/automake gcc-lto
+sys-devel/libtool gcc-lto
+sys-apps/baselayout gcc-lto
+sys-apps/makedev gcc-lto
+sys-apps/coreutils gcc-lto
+sys-apps/diffutils gcc-lto
+sys-apps/file gcc-lto
+sys-apps/findutils gcc-lto
+sys-apps/gawk gcc-lto
+sys-apps/grep gcc-lto
+sys-apps/less gcc-lto
+sys-apps/net-tools gcc-lto
+sys-apps/portage gcc-lto
+sys-apps/sed gcc-lto
+sys-apps/shadow gcc-lto
+sys-devel/binutils gcc-lto
+sys-devel/bison gcc-lto
+sys-devel/flex gcc-lto
+sys-devel/gcc gcc-lto
+sys-devel/gettext gcc-lto
+sys-devel/gnuconfig gcc-lto
+sys-devel/make gcc-lto
+sys-devel/patch gcc-lto
+virtual/editor gcc-lto
+virtual/libc gcc-lto
+virtual/os-headers gcc-lto
+virtual/pkgconfig gcc-lto
+sys-apps/which gcc-lto
+dev-util/umockdev gcc-lto
+dev-qt/qtwebengine gcc-lto
+app-emulation/wine-proton gcc-lto
+dev-libs/hyprlang gcc-lto
+net-im/telegram-desktop gcc-lto
+dev-java/openjdk gcc-lto
+dev-libs/botan gcc-lto
+app-i18n/opencc gcc-lto
+dev-libs/jansson gcc-lto
+dev-db/mysql gcc-lto
+media-sound/jack2 clang
+dev-python/pygraphviz gcc
+dev-util/mamba gcc-lto
+gui-apps/waybar gcc-lto
+dev-util/android-tools gcc-lto
+sci-libs/cholmod gcc-lto
+sci-libs/openblas gcc-lto
+
+# gcc, no lto
+media-libs/x264 gcc #497714
+media-video/ffmpeg gcc #772854
+sys-kernel/gentoo-kernel gcc # needs some workarounds for clang+thinlto, easier with gentoo-sources
+sys-libs/libselinux gcc
+sys-libs/libsepol gcc
+
+# textrels (https://wiki.gentoo.org/wiki/Hardened/Textrels_Guide)
+media-libs/libass clang-lto-text
+media-libs/openh264 clang-lto-text
+media-libs/x265 clang-lto-text
+media-libs/xvid clang-lto-text
+
+# misc, package-specific solutions, other env overrides
+# mail-client/thunderbird firefox2
+# www-client/firefox firefox2
