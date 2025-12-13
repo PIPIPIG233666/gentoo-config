@@ -1,10 +1,11 @@
 # use old gcc for nvidia
-dev-util/nvidia-cuda-toolkit nvcc
+#dev-util/nvidia-cuda-toolkit nvcc
 sci-ml/caffe2 nvcc
 sci-libs/caffe2 nvcc
 app-misc/ollama gcc-lto
 media-libs/opencv nvcc
 sys-libs/libnvidia-container gcc
+
 dev-lang/python gcc-lto
 net-libs/libidn2 gcc-lto
 net-libs/gnutls gcc-lto
@@ -41,7 +42,7 @@ sys-libs/readline clang
 dev-lang/perl clang
 perl-*/* clang
 dev-perl/* clang
-app-text/* clang
+#app-text/* clang
 sys-devel/bin86 clang
 dev-db/sqlite clang
 
@@ -116,7 +117,6 @@ sci-libs/openblas gcc-lto
 # gcc, no lto
 media-libs/x264 gcc #497714
 media-video/ffmpeg gcc #772854
-sys-kernel/gentoo-kernel gcc # needs some workarounds for clang+thinlto, easier with gentoo-sources
 sys-libs/libselinux gcc
 sys-libs/libsepol gcc
 

@@ -1,5 +1,7 @@
 x11-drivers/nvidia-drivers kernel-open
 
+dev-util/nvidia-cuda-toolkit clang
+
 # required by media-libs/mesa-24.1.4::gentoo[llvm_slot_18,llvm]
 # required by gui-libs/egl-gbm-1.1.1-r1::gentoo
 # required by x11-drivers/nvidia-drivers-555.58.02::gentoo[wayland]
